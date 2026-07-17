@@ -1,0 +1,31 @@
+# Daily tender refresh at 06:00.
+#
+# Setup (once):
+#   cd /opt/tender-pipeline
+#   echo '.env' >> .gitignore                            # BEFORE creating it
+#   ( umask 077; printf 'DATAGOVINDIA_API_KEY=%s\n' 'your-key' > .env )
+#   chmod +x scripts/*.sh
+#
+# scripts/refresh.sh runs the pipeline, verifies the output, and only then
+# publishes — atomically, keeping a .bak you can roll back to. If the scrape
+# fails or comes back thin, it exits non-zero and leaves the live feed alone.
+# cron will mail you the output.
+#
+# Tune --min-count once a successful live run shows you the real floor. See
+# deploy/README.md — as of 16-Jul-2026, ka-gepnic is the only source expected
+# to publish anything.
+#
+# The old line here was:
+#   cd /opt/tender-pipeline && set -a && . ./.env 2>/dev/null; set +a && node src/run.js
+# Three problems: `. ./.env` SOURCES the file, so a key containing $, backticks
+# or spaces is mangled or executed; the `;` broke the && chain, so node ran even
+# if the cd failed; and it published whatever came out, unverified.
+
+SHELL=/bin/bash
+PATH=/usr/local/bin:/usr/bin:/bin
+MAILTO=you@example.com
+
+0 6 * * *  cd /opt/tender-pipeline && ./scripts/refresh.sh --web-root /var/www/bharat --min-count 1 >> data/run.log 2>&1
+
+# Rollback, if a bad feed does get through:
+#   /opt/tender-pipeline/scripts/02-deploy-vps.sh --web-root /var/www/bharat --rollback

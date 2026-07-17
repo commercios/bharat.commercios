@@ -1,0 +1,28 @@
+# ── secrets ───────────────────────────────────────────────────────────────────
+# This MUST be here before you ever create a .env. Adding a file to .gitignore
+# after git has already tracked it does nothing — git keeps tracking it.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ── dependencies ──────────────────────────────────────────────────────────────
+node_modules/
+
+# ── pipeline working files ────────────────────────────────────────────────────
+# The published feed lives at docs/tenders.json (committed, that's the site).
+# Everything under tender-pipeline/data/ is scratch — the pipeline rewrites it
+# on every run, and .prev/.bak are deploy-guard state, not source.
+tender-pipeline/data/tenders.json.prev
+tender-pipeline/data/tenders.json.bak
+tender-pipeline/data/*.tmp
+tender-pipeline/data/run.log
+tender-pipeline/data/.checksums.json
+
+# ── os / editor noise ─────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

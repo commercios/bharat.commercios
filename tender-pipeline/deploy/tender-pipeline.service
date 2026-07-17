@@ -1,0 +1,32 @@
+[Unit]
+Description=Bharat tender pipeline (daily refresh)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/tender-pipeline
+
+# systemd parses this file itself (it does NOT source it as shell), so a key
+# containing $ or backticks is safe here. chmod 600, do NOT commit.
+EnvironmentFile=-/etc/tender-pipeline.env
+
+# refresh.sh = run → verify → atomic publish. A failed or thin scrape exits
+# non-zero, the unit is marked failed, and the live feed is left untouched.
+# Tune --min-count once a live run shows the real floor (see deploy/README.md).
+ExecStart=/opt/tender-pipeline/scripts/refresh.sh --web-root /var/www/bharat --min-count 1
+
+# The unit needs to write /var/www/bharat. Either chown it to this user, or
+# drop the User= line to run as root (and accept that the scraper runs as root).
+User=www-data
+Group=www-data
+
+# refresh.sh needs to write data/ in WorkingDirectory and the web root; nothing else.
+ProtectSystem=full
+ReadWritePaths=/opt/tender-pipeline/data /var/www/bharat
+ProtectHome=true
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

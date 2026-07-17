@@ -1,0 +1,17 @@
+{
+  "name": "bharat-tender-pipeline",
+  "version": "1.0.0",
+  "description": "Ingests government tenders from official sources, validates against tender.schema.json, applies trust gates, and publishes tenders.json for bharat.commercios.com.",
+  "type": "module",
+  "bin": { "tender-pipeline": "src/run.js" },
+  "scripts": {
+    "run": "node src/run.js",
+    "run:offline": "node src/run.js --offline"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "cheerio": "^1.0.0"
+  },
+  "license": "MIT"
+}

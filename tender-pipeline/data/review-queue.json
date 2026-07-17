@@ -1,0 +1,89 @@
+[
+  {
+    "record": {
+      "id": "tnd_8f13234bef",
+      "nit_ref": "05-EE/PB/04/2026-27",
+      "title": "FCI Smart Warehouse Electrical Infrastructure Project for Installation of Power Sockets at FSD Tanda under DO Hoshiarpur for FY 2026-27.",
+      "organisation": null,
+      "org_type": "Central",
+      "state": "All India",
+      "source_portal": "CPPP",
+      "tender_type": "Open",
+      "procurement_category": "Goods",
+      "pac_inr": null,
+      "emd_inr": null,
+      "published_date": null,
+      "bid_submission_end": "2026-07-23T10:00:00.000Z",
+      "bid_opening_date": "2026-07-24T11:00:00.000Z",
+      "status": "Active",
+      "source_tier": "tier_1_official",
+      "source_urls": [
+        "https://eprocure.gov.in/?component=%24DirectLink&page=Home&service=direct&session=T&sp=S56Ba%2BfIhiOXzqi4t4bNyzg%3D%3D"
+      ],
+      "discovered_by": "deterministic",
+      "last_verified": "2026-07-16T12:59:16.119Z"
+    },
+    "stage": "business_rules",
+    "errors": [
+      "missing_organisation"
+    ]
+  },
+  {
+    "record": {
+      "id": "tnd_8b88678fb3",
+      "nit_ref": "AIIMS/R/CS/Alumni Meet 2026",
+      "title": "Regarding providing Catering Services during the Alumni Meet and 3rd Convocation Ceremony at AIIMS Raipur.",
+      "organisation": null,
+      "org_type": "Central",
+      "state": "All India",
+      "source_portal": "CPPP",
+      "tender_type": "Open",
+      "procurement_category": "Services",
+      "pac_inr": null,
+      "emd_inr": null,
+      "published_date": null,
+      "bid_submission_end": "2026-07-21T15:00:00.000Z",
+      "bid_opening_date": "2026-07-23T12:30:00.000Z",
+      "status": "Active",
+      "source_tier": "tier_1_official",
+      "source_urls": [
+        "https://eprocure.gov.in/?component=%24DirectLink&page=Home&service=direct&session=T&sp=SYh09mK4rklajNiGzbsnElw%3D%3D"
+      ],
+      "discovered_by": "deterministic",
+      "last_verified": "2026-07-16T12:59:16.119Z"
+    },
+    "stage": "business_rules",
+    "errors": [
+      "missing_organisation"
+    ]
+  },
+  {
+    "record": {
+      "id": "tnd_9504b7a231",
+      "nit_ref": "IWD/IE/2026-27/E Tender/C-38",
+      "title": "Repair of Plaster/RCC at all heights of Hostels in Zone F at IIT Roorkee",
+      "organisation": null,
+      "org_type": "Central",
+      "state": "All India",
+      "source_portal": "CPPP",
+      "tender_type": "Open",
+      "procurement_category": "Goods",
+      "pac_inr": null,
+      "emd_inr": null,
+      "published_date": null,
+      "bid_submission_end": "2026-08-06T13:00:00.000Z",
+      "bid_opening_date": "2026-08-07T15:30:00.000Z",
+      "status": "Active",
+      "source_tier": "tier_1_official",
+      "source_urls": [
+        "https://eprocure.gov.in/?component=%24DirectLink&page=Home&service=direct&session=T&sp=SOP%2BDHT1pdy9su4iS%2BMHSBw%3D%3D"
+      ],
+      "discovered_by": "deterministic",
+      "last_verified": "2026-07-16T12:59:16.119Z"
+    },
+    "stage": "business_rules",
+    "errors": [
+      "missing_organisation"
+    ]
+  }
+]

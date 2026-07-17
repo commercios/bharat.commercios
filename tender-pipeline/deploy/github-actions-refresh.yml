@@ -1,0 +1,149 @@
+# Daily tender refresh on GitHub-hosted runners.
+#
+# Runners CAN reach the gov endpoints (eprocure.gov.in, eproc.karnataka.gov.in,
+# api.data.gov.in) — a local sandbox cannot. This is the realistic live path.
+#
+# Setup:
+#   1. Settings → Secrets → Actions → add DATAGOVINDIA_API_KEY (only needed once
+#      config.js has a real resourceId; OGD is skipped until then).
+#   2. Settings → Actions → General → Workflow permissions → Read and write.
+#   3. Tune MIN_COUNT below — the default is a placeholder, see the note.
+#   4. Confirm CPPP/GePNIC robots.txt + ToS before enabling automated scraping.
+#
+# What changed: it no longer commits blindly. src/run.js:35-37 catches per-source
+# adapter errors and continues, so an all-sources-failed run still exits 0 with
+# verified:true and count:0. The previous version would have published that empty
+# feed over your live data. scripts/01-verify.sh refuses it.
+
+name: refresh-tenders
+
+on:
+  schedule: [{ cron: '0 6 * * *' }]   # 06:00 UTC daily
+  workflow_dispatch:
+    inputs:
+      min_count:
+        description: 'Refuse to publish below this many tenders'
+        required: false
+        default: ''
+      max_drop:
+        description: 'Refuse if count falls more than this %'
+        required: false
+        default: ''
+
+# Needed for GITHUB_TOKEN to push the refreshed feed back.
+permissions:
+  contents: write
+
+# Never let two refreshes race for the same commit.
+concurrency:
+  group: refresh-tenders
+  cancel-in-progress: false
+
+env:
+  # The live feed, relative to repo root. Must match the path index.html fetches.
+  #
+  # docs/ because GitHub Pages can only serve from repo root or /docs on a
+  # branch — "public/" is not a selectable source. Settings → Pages → Source:
+  # Deploy from a branch → main → /docs.
+  SITE_FEED: docs/tenders.json
+
+  # MIN_COUNT — the floor below which a run is treated as a failed scrape.
+  #
+  # Set this deliberately. As of 16-Jul-2026, config.js implies: cppp publishes 0
+  # rows live (the no-session widget has no organisation, and gates.js:31 holds
+  # every such row for review), ogd is skipped while resourceId is
+  # REPLACE_WITH_..., and gem is disabled. That leaves ka-gepnic carrying the
+  # whole feed. 1 is a placeholder — raise it once a successful live run tells
+  # you the real floor.
+  MIN_COUNT: '1'
+
+  # MAX_DROP — % fall vs the currently-live feed that trips the guard.
+  MAX_DROP: '30'
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tender-pipeline/package-lock.json
+
+      - name: Install
+        run: npm ci
+        working-directory: tender-pipeline
+
+      # The drop guard compares against data/tenders.json.prev, which never
+      # exists on a fresh runner. Seed it from the feed that is live right now,
+      # so the guard compares "new scrape" vs "what the public currently sees".
+      - name: Seed drop-guard baseline from the live feed
+        run: |
+          set -euo pipefail
+          if [ -f "$SITE_FEED" ]; then
+            mkdir -p tender-pipeline/data
+            cp "$SITE_FEED" tender-pipeline/data/tenders.json.prev
+            echo "baseline: $(node -e 'const d=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8"));process.stdout.write(String(d.meta.count))' "$SITE_FEED") tenders currently live"
+          else
+            echo "no live feed at $SITE_FEED — first run, drop guard cannot fire"
+          fi
+
+      - name: Run pipeline (live)
+        run: node src/run.js
+        working-directory: tender-pipeline
+        env:
+          DATAGOVINDIA_API_KEY: ${{ secrets.DATAGOVINDIA_API_KEY }}
+
+      # THE GATE. Non-zero exit fails the job, so nothing below runs.
+      - name: Verify before publishing
+        working-directory: tender-pipeline
+        run: |
+          ./scripts/01-verify.sh \
+            --min-count "${{ github.event.inputs.min_count || env.MIN_COUNT }}" \
+            --max-drop  "${{ github.event.inputs.max_drop  || env.MAX_DROP }}"
+
+      - name: Publish to site
+        id: publish
+        run: |
+          set -euo pipefail
+          mkdir -p "$(dirname "$SITE_FEED")"
+          cp tender-pipeline/data/tenders.json "$SITE_FEED"
+          git config user.name  "tender-bot"
+          git config user.email "bot@bharat.commercios.com"
+          git add -- "$SITE_FEED"                    # named path, never -A
+          if git diff --cached --quiet; then
+            echo "no change in the feed — nothing to commit"
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          COUNT=$(node -e 'const d=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8"));process.stdout.write(String(d.meta.count))' "$SITE_FEED")
+          git commit -m "chore: daily tender refresh ($COUNT tenders)"
+          git push
+          echo "committed=true" >> "$GITHUB_OUTPUT"
+
+      # Held rows are the early warning: if the review queue is growing, the
+      # scrape is degrading. Surface it here rather than in a log nobody reads.
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### Tender refresh"
+            if [ -f tender-pipeline/data/tenders.json ]; then
+              node -e '
+                const fs=require("fs");
+                const d=JSON.parse(fs.readFileSync("tender-pipeline/data/tenders.json","utf8"));
+                console.log("- published: **"+d.meta.count+"** (verified="+d.meta.verified+", mode="+d.meta.mode+")");
+              '
+            fi
+            if [ -f tender-pipeline/data/review-queue.json ]; then
+              node -e '
+                const fs=require("fs");
+                const q=JSON.parse(fs.readFileSync("tender-pipeline/data/review-queue.json","utf8"));
+                const by={}; for (const r of q) by[r.stage]=(by[r.stage]||0)+1;
+                console.log("- held for review: **"+q.length+"** "+JSON.stringify(by));
+              '
+            fi
+            echo "- committed: ${{ steps.publish.outputs.committed || 'no (job failed before publish)' }}"
+          } >> "$GITHUB_STEP_SUMMARY"

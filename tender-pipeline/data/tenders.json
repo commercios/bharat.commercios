@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "verified": false,
+    "mode": "offline-fixtures",
+    "generator": "bharat-tender-pipeline",
+    "generated_at": "2026-07-16T12:59:16.129Z",
+    "count": 5
+  },
+  "tenders": [
+    {
+      "id": "tnd_c7ebebf9e1",
+      "nit_ref": "OGD/2026/IT/0912",
+      "title": "Consultancy services for state data centre modernisation",
+      "organisation": "Department of Electronics and Information Technology",
+      "org_type": "State",
+      "state": "Telangana",
+      "source_portal": "OGD",
+      "tender_type": "Open",
+      "procurement_category": "Consultancy",
+      "product_category": "IT",
+      "pac_inr": 61000000,
+      "emd_inr": 1220000,
+      "published_date": "2026-07-09T00:00:00.000Z",
+      "bid_submission_end": "2026-07-19T00:00:00.000Z",
+      "bid_opening_date": "2026-07-20T00:00:00.000Z",
+      "status": "Active",
+      "source_tier": "tier_1_official",
+      "source_urls": [
+        "https://data.gov.in"
+      ],
+      "discovered_by": "deterministic",
+      "last_verified": "2026-07-16T12:59:16.126Z",
+      "trust_score": 85
+    },
+    {
+      "id": "tnd_ed46c1560e",
+      "nit_ref": "OGD/2026/PWD/0501",
+      "title": "Widening and strengthening of major district road MDR-14",
+      "organisation": "Public Works Department",
+      "org_type": "State",
+      "state": "Rajasthan",
+      "source_portal": "OGD",
+      "tender_type": "Open",
+      "procurement_category": "Works",
+      "product_category": "Construction",
+      "pac_inr": 142500000,
+      "emd_inr": 2850000,
+      "published_date": "2026-07-11T00:00:00.000Z",
+      "bid_submission_end": "2026-07-24T00:00:00.000Z",
+      "bid_opening_date": "2026-07-25T00:00:00.000Z",
+      "status": "Active",
+      "source_tier": "tier_1_official",
+      "source_urls": [
+        "https://data.gov.in"
+      ],
+      "discovered_by": "deterministic",
+      "last_verified": "2026-07-16T12:59:16.125Z",
+      "trust_score": 85
+    },
+    {
+      "id": "tnd_107e90db71",
+      "nit_ref": "2026_KA_555001_1",
+      "title": "Upgradation of rural drinking water supply, Belagavi",
+      "organisation": "Rural Development and Panchayat Raj||Karnataka||Belagavi",
+      "org_type": "State",
+      "state": "Karnataka",
+      "source_portal": "GePNIC-State",
+      "tender_type": "Open",
+      "procurement_category": "Goods",
+      "pac_inr": null,
+      "emd_inr": null,
+      "published_date": "2026-07-12T17:00:00.000Z",
+      "bid_submission_end": "2026-07-26T15:00:00.000Z",
+      "bid_opening_date": "2026-07-27T11:00:00.000Z",
+      "status": "Active",
+      "source_tier": "tier_1_official",
+      "source_urls": [
+        "https://eproc.karnataka.gov.in/?page=FrontEndTenderDetails&tenderId=KA55001"
+      ],
+      "discovered_by": "deterministic",
+      "last_verified": "2026-07-16T12:59:16.123Z",
+      "trust_score": 80
+    },
+    {
+      "id": "tnd_eeaed8f93d",
+      "nit_ref": "2026_KA_555040_1",
+      "title": "Supply of solar street lights to gram panchayats",
+      "organisation": "Energy Department||Karnataka",
+      "org_type": "State",
+      "state": "Karnataka",
+      "source_portal": "GePNIC-State",
+      "tender_type": "Open",
+      "procurement_category": "Goods",
+      "pac_inr": null,
+      "emd_inr": null,
+      "published_date": "2026-07-13T10:00:00.000Z",
+      "bid_submission_end": "2026-07-29T15:00:00.000Z",
+      "bid_opening_date": "2026-07-30T11:00:00.000Z",
+      "status": "Active",
+      "source_tier": "tier_1_official",
+      "source_urls": [
+        "https://eproc.karnataka.gov.in/?page=FrontEndTenderDetails&tenderId=KA55040"
+      ],
+      "discovered_by": "deterministic",
+      "last_verified": "2026-07-16T12:59:16.123Z",
+      "trust_score": 80
+    },
+    {
+      "id": "tnd_bf748d8f42",
+      "nit_ref": "OGD/2026/HFW/0777",
+      "title": "Procurement of hospital linen and consumables (rate contract)",
+      "organisation": "Directorate of Health Services",
+      "org_type": "State",
+      "state": "Kerala",
+      "source_portal": "OGD",
+      "tender_type": "Open",
+      "procurement_category": "Goods",
+      "product_category": "Healthcare",
+      "pac_inr": 38000000,
+      "emd_inr": 760000,
+      "published_date": "2026-07-13T00:00:00.000Z",
+      "bid_submission_end": "2026-07-30T00:00:00.000Z",
+      "bid_opening_date": "2026-07-31T00:00:00.000Z",
+      "status": "Active",
+      "source_tier": "tier_1_official",
+      "source_urls": [
+        "https://data.gov.in"
+      ],
+      "discovered_by": "deterministic",
+      "last_verified": "2026-07-16T12:59:16.126Z",
+      "trust_score": 85
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "index_name": "tenders_sample",
+  "total": 3,
+  "count": 3,
+  "records": [
+    {
+      "tender_id": "OGD/2026/PWD/0501",
+      "tender_title": "Widening and strengthening of major district road MDR-14",
+      "organisation": "Public Works Department",
+      "state": "Rajasthan",
+      "tender_value": "142500000",
+      "emd": "2850000",
+      "published_date": "2026-07-11",
+      "bid_submission_end_date": "2026-07-24",
+      "bid_opening_date": "2026-07-25",
+      "product_category": "Construction"
+    },
+    {
+      "tender_id": "OGD/2026/HFW/0777",
+      "tender_title": "Procurement of hospital linen and consumables (rate contract)",
+      "organisation": "Directorate of Health Services",
+      "state": "Kerala",
+      "tender_value": "38000000",
+      "emd": "760000",
+      "published_date": "2026-07-13",
+      "bid_submission_end_date": "2026-07-30",
+      "bid_opening_date": "2026-07-31",
+      "product_category": "Healthcare"
+    },
+    {
+      "tender_id": "OGD/2026/IT/0912",
+      "tender_title": "Consultancy services for state data centre modernisation",
+      "organisation": "Department of Electronics and Information Technology",
+      "state": "Telangana",
+      "tender_value": "61000000",
+      "emd": "1220000",
+      "published_date": "2026-07-09",
+      "bid_submission_end_date": "2026-07-19",
+      "bid_opening_date": "2026-07-20",
+      "product_category": "IT"
+    }
+  ]
+}

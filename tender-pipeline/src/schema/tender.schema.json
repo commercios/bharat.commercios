@@ -1,0 +1,195 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bharat.commercios.com/schema/tender.schema.json",
+  "title": "Tender",
+  "description": "Data contract for a single government tender/procurement notice. Terminology follows the national standard used by the Central Public Procurement Portal (CPPP), GeM, and GFR 2017. Producer (workflow) and consumer (website) share exactly this schema; if a record does not validate, it does not publish.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "nit_ref",
+    "title",
+    "organisation",
+    "org_type",
+    "source_portal",
+    "tender_type",
+    "procurement_category",
+    "status",
+    "source_tier",
+    "source_urls",
+    "last_verified"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Internal stable identifier (does not change across refreshes).",
+      "pattern": "^tnd_[a-z0-9]{8,}$"
+    },
+    "nit_ref": {
+      "type": "string",
+      "description": "Notice Inviting Tender (NIT) reference / tender reference number as published by the procuring entity.",
+      "minLength": 2,
+      "maxLength": 200
+    },
+    "title": {
+      "type": "string",
+      "description": "Tender title / work description.",
+      "minLength": 3,
+      "maxLength": 400
+    },
+    "plain_summary": {
+      "type": "string",
+      "description": "Editorial one-line, plain-language, what-is-being-procured-first summary. Must contain no unverified claim.",
+      "maxLength": 300
+    },
+    "organisation": {
+      "type": "string",
+      "description": "Procuring entity / organisation name.",
+      "minLength": 2,
+      "maxLength": 300
+    },
+    "org_type": {
+      "type": "string",
+      "description": "Type of procuring organisation.",
+      "enum": ["Central", "State", "PSU", "CPSE", "Autonomous Body", "Local Body"]
+    },
+    "state": {
+      "type": "string",
+      "description": "State/UT of the procuring entity, or 'All India' for central.",
+      "minLength": 2,
+      "maxLength": 60
+    },
+    "source_portal": {
+      "type": "string",
+      "description": "Originating portal.",
+      "enum": ["CPPP", "GeM", "GePNIC-State", "OGD", "Ministry", "Other"]
+    },
+    "tender_type": {
+      "type": "string",
+      "description": "CPPP-enumerated tender type.",
+      "enum": ["Open", "Limited", "EOI", "Auction", "Single", "Global"]
+    },
+    "procurement_category": {
+      "type": "string",
+      "description": "Nature of procurement per GFR/CPPP.",
+      "enum": ["Goods", "Works", "Services", "Consultancy"]
+    },
+    "product_category": {
+      "type": "string",
+      "description": "Product/service category (controlled vocabulary, e.g. Construction, IT, Electrical, Railway, Defence, Healthcare, Solar).",
+      "maxLength": 120
+    },
+    "pac_inr": {
+      "type": ["number", "null"],
+      "description": "Probable Amount of Contract (estimated tender value) in INR. Null if not disclosed.",
+      "minimum": 0
+    },
+    "emd_inr": {
+      "type": ["number", "null"],
+      "description": "Earnest Money Deposit in INR. Null if exempt/not disclosed.",
+      "minimum": 0
+    },
+    "published_date": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Date the NIT was published."
+    },
+    "bid_submission_start": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "bid_submission_end": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Bid submission end date/time. Required (non-null) when status is 'Active' — enforced by business rule, not schema."
+    },
+    "bid_opening_date": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "description": "Lifecycle state. The four public views (Forthcoming / Active / Archived / Award of Contract) are filters over this field.",
+      "enum": ["Forthcoming", "Active", "Closed", "Under Evaluation", "Awarded", "Cancelled", "Archived"]
+    },
+    "corrigendum": {
+      "type": "array",
+      "description": "Official amendments to the tender after publication. A corrigendum supersedes the original for the fields it touches.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ref", "date"],
+        "properties": {
+          "ref": { "type": "string", "maxLength": 200 },
+          "date": { "type": "string", "format": "date-time" },
+          "summary": { "type": "string", "maxLength": 300 }
+        }
+      }
+    },
+    "documents": {
+      "type": "array",
+      "description": "Tender document package (NIT document, BOQ, technical specs, etc.).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "url"],
+        "properties": {
+          "name": { "type": "string", "maxLength": 200 },
+          "url": {
+            "type": "string",
+            "description": "HTTPS URL on an official government domain.",
+            "pattern": "^https://[a-z0-9.-]+\\.(gov|nic)\\.in/.*$"
+          }
+        }
+      }
+    },
+    "award": {
+      "type": ["object", "null"],
+      "description": "Award of Contract (AoC) / bid award details. Present when status is 'Awarded' or 'Archived' with a known result.",
+      "additionalProperties": false,
+      "properties": {
+        "awarded_bidder": { "type": "string", "maxLength": 300 },
+        "awarded_value_inr": { "type": ["number", "null"], "minimum": 0 },
+        "award_date": { "type": ["string", "null"], "format": "date-time" },
+        "contract_doc_url": {
+          "type": ["string", "null"],
+          "pattern": "^https://[a-z0-9.-]+\\.(gov|nic)\\.in/.*$"
+        }
+      }
+    },
+    "source_tier": {
+      "type": "string",
+      "description": "Authority tier of the corroborating source(s). Only tier_1 may be shown as verified on its own.",
+      "enum": ["tier_1_official", "tier_2_reference"]
+    },
+    "source_urls": {
+      "type": "array",
+      "description": "One or more source URLs. At least one must be an official government domain.",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^https://.+"
+      }
+    },
+    "trust_score": {
+      "type": ["integer", "null"],
+      "description": "0-100 corroboration/trust score assigned by the pipeline. Publish gate requires >= threshold.",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "discovered_by": {
+      "type": "string",
+      "description": "Provenance of the record: deterministic pipeline or the Discovery Agent (agent records always route through review before first publish).",
+      "enum": ["deterministic", "agent"]
+    },
+    "last_verified": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this record was last corroborated against an official source."
+    },
+    "changelog_ref": {
+      "type": ["string", "null"],
+      "description": "Pointer into the append-only changelog for this record's material changes."
+    }
+  }
+}
