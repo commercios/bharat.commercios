@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RTI — how to make a government office answer you | Bharat</title>
+<meta name="description" content="₹10 and 30 days. RTI is the legal tool that forces a department to give you a record or explain why not. Templates, deadlines, appeals, and the penalty that makes officers reply.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#122747; --ink2:#3a4f73; --ink3:#6d7d99;
+  --paper:#fcf8f0; --paper2:#ffffff; --card:#ffffff;
+  --saffron:#ff7a1a; --saffron-deep:#e35c00; --saffron-soft:#fff1e2;
+  --green:#0f8a4c; --green-soft:#e6f4ec;
+  --red:#c62828; --red-soft:#fdecea;
+  --line:rgba(18,39,71,.12); --line2:rgba(18,39,71,.07);
+  --shadow:0 1px 2px rgba(18,39,71,.06), 0 12px 30px -18px rgba(18,39,71,.28);
+  --radius:16px; --radius-sm:11px; --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+a{color:var(--saffron-deep)}
+h1,h2,h3{font-family:"Bricolage Grotesque",Inter,sans-serif;letter-spacing:-.02em;line-height:1.15}
+.hi{font-family:"Noto Sans Devanagari",Inter,sans-serif}
+
+header{background:var(--paper2);border-bottom:1px solid var(--line2);position:sticky;top:0;z-index:50}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-family:"Bricolage Grotesque";
+  font-size:20px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.brand small{display:block;font-size:11px;font-weight:500;color:var(--ink3);letter-spacing:0}
+.mark{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--saffron),var(--green));flex:none}
+.nav{display:flex;align-items:center;gap:20px;font-size:14.5px;font-weight:500;flex-wrap:wrap}
+.nav a{color:var(--ink2);text-decoration:none}
+.nav a:hover{color:var(--saffron-deep)}
+.verified-pill{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;
+  color:var(--green);background:var(--green-soft);padding:6px 12px;border-radius:999px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
+
+.hero{padding:44px 0 26px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:12.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--saffron-deep);margin-bottom:16px}
+h1{font-size:clamp(31px,4.8vw,52px);font-weight:800;max-width:17ch}
+.lede{font-size:clamp(17px,2vw,20px);color:var(--ink2);max-width:62ch;margin-top:18px}
+.hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:center}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr;gap:24px}}
+.facts{display:grid;gap:12px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px 18px;
+  display:flex;align-items:baseline;gap:14px;box-shadow:var(--shadow)}
+.fact b{font-family:"Bricolage Grotesque";font-size:26px;font-weight:800;color:var(--saffron-deep);
+  line-height:1;flex:none;min-width:74px}
+.fact span{font-size:14px;color:var(--ink2)}
+
+.btn{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);background:var(--paper2);
+  color:var(--ink);font-weight:600;font-size:15px;padding:13px 20px;border-radius:12px;
+  text-decoration:none;transition:.14s;cursor:pointer}
+.btn:hover{border-color:var(--saffron);transform:translateY(-1px)}
+.btn.primary{background:var(--saffron);border-color:var(--saffron);color:#fff}
+.btn.primary:hover{background:var(--saffron-deep);border-color:var(--saffron-deep)}
+.cta-row{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+
+section{padding:34px 0}
+.sec-title{font-size:clamp(24px,3vw,32px);font-weight:800;margin-bottom:8px}
+.sec-sub{color:var(--ink2);max-width:66ch;margin-bottom:24px}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:900px){.grid,.grid2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;box-shadow:var(--shadow)}
+.card h3{font-size:19px;font-weight:700;margin-bottom:8px}
+.card p{color:var(--ink2);font-size:15px}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--saffron-deep);background:var(--saffron-soft);padding:4px 9px;border-radius:6px;margin-bottom:12px}
+
+.note{background:var(--saffron-soft);border:1px solid rgba(255,122,26,.28);border-radius:var(--radius-sm);
+  padding:18px 20px;margin:22px 0}
+.note strong{color:var(--saffron-deep)}
+.note.calm{background:var(--green-soft);border-color:rgba(15,138,76,.25)}
+.note.calm strong{color:var(--green)}
+.note.warn{background:var(--red-soft);border-color:rgba(198,40,40,.28)}
+.note.warn strong{color:var(--red)}
+
+.tmpl{background:#fffdf8;border:1px solid var(--line);border-left:4px solid var(--saffron);
+  border-radius:var(--radius-sm);padding:22px 24px;font-size:14.6px;line-height:1.75;margin-top:14px}
+.tmpl .fill{background:var(--saffron-soft);border-bottom:1.5px dashed var(--saffron);
+  padding:1px 5px;border-radius:3px;font-weight:600}
+.tmpl h4{font-family:Inter;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:12px}
+.copy{margin-top:12px}
+
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius-sm);overflow:hidden;font-size:14.8px;margin-top:8px}
+th,td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{background:var(--paper);font-weight:700;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3)}
+tr:last-child td{border-bottom:none}
+
+details{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:16px 20px;margin-bottom:10px}
+summary{font-weight:600;cursor:pointer;font-size:15.5px}
+details p{color:var(--ink2);font-size:14.8px;margin-top:10px}
+
+footer{border-top:1px solid var(--line2);background:var(--paper2);padding:34px 0;margin-top:30px;
+  font-size:14px;color:var(--ink3)}
+.f-note{max-width:70ch;margin-bottom:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hd">
+    <a class="brand" href="/">
+      <span class="mark" aria-hidden="true"></span>
+      <span>Bharat<small>bharat.commercios.com</small></span>
+    </a>
+    <nav class="nav">
+      <a href="/">Schemes</a>
+      <a href="/unclaimed/">Unclaimed money</a>
+      <a href="/bihar-survey/">Bihar land survey</a>
+      <a href="#templates">Templates</a>
+      <span class="verified-pill"><span class="dot"></span>Official sources</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Right to Information</div>
+        <h1>When a government office ignores you, this is what you use.</h1>
+        <p class="lede">Every other page on this site tells you which form to file and which office
+        to file it at. This is the page for when you did all that and nothing happened. RTI is not a
+        complaint. It's a law with a deadline and a personal penalty attached — and it is the
+        cheapest leverage a citizen has.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#templates">Get the template →</a>
+          <a class="btn" href="https://rtionline.gov.in/" target="_blank" rel="noopener">Central RTI portal</a>
+        </div>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>₹10</b><span>the fee for a central RTI. Free if you're below the poverty line.</span></div>
+        <div class="fact"><b>30</b><span>days the officer has to reply. Not a guideline — a statutory limit.</span></div>
+        <div class="fact"><b>₹250</b><span>per day of delay, payable <em>by the officer personally</em>, up to ₹25,000.</span></div>
+        <div class="fact"><b>0</b><span>reasons you must give. You never have to explain why you want it.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="note calm">
+    <strong>The part nobody believes until they try it:</strong> if the officer misses the 30 days,
+    the information becomes <strong>free</strong> — they lose the right to charge you. And the penalty
+    under Section 20 comes out of the officer's own salary, not the department's budget. That is why
+    an RTI moves a file that six polite letters could not. You are not asking any more.
+  </div>
+
+  <section id="what">
+    <h2 class="sec-title">What RTI actually does</h2>
+    <p class="sec-sub">Most people think it's for journalists and activists. It's mostly for people
+    whose ordinary paperwork got stuck.</p>
+
+    <div class="grid">
+      <div class="card">
+        <span class="tag">Get a document</span>
+        <h3>"Give me a copy"</h3>
+        <p>A certified copy of a deed, a khatiyan entry, your own file. If the office is sitting on
+        it, RTI compels them to hand it over or state a legal reason.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Get an answer</span>
+        <h3>"What happened to my application?"</h3>
+        <p>Ask for the current status, the file notings, the name of the officer holding it, and the
+        date it reached them. <strong>Asking for the notings is what makes files move</strong> — it
+        means someone will read who sat on it.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Get a reason</span>
+        <h3>"Why was I rejected?"</h3>
+        <p>If a scheme, mutation or claim was refused, ask for the reason recorded in the file and
+        the rule it relied on. Very often no reason was ever written down — which is itself the answer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="bihar">
+    <h2 class="sec-title">If you're in Bihar — you can file by phone</h2>
+    <p class="sec-sub">Bihar has something no other state does, and almost nobody outside Bihar knows
+    it exists.</p>
+
+    <div class="grid2">
+      <div class="card">
+        <span class="tag">Jaankari · जानकारी</span>
+        <h3>File an RTI by calling a number</h3>
+        <p>You call, an operator writes your RTI for you, and it gets filed. Set up in <strong>January
+        2007</strong> specifically to bridge the literacy and digital divide — "information at your
+        doorstep". It has been running ever since and was awarded Best E-Governance Initiative by the
+        Government of India.</p>
+        <p style="margin-top:14px">
+          <strong style="font-size:19px;color:var(--saffron-deep)">155311</strong> — application line
+          <span style="color:var(--ink3);font-size:13.5px">(premium rate, BSNL)</span><br>
+          <strong style="font-size:19px;color:var(--saffron-deep)">155310</strong> — enquiry line
+          <span style="color:var(--ink3);font-size:13.5px">(normal tariff)</span>
+        </p>
+        <p style="margin-top:12px"><a href="https://jaankari.bihar.gov.in/" target="_blank" rel="noopener">jaankari.bihar.gov.in →</a></p>
+      </div>
+      <div class="card">
+        <span class="tag">Why it matters here</span>
+        <h3>You don't need to write, type, or travel</h3>
+        <p>If your land is stuck in a great-grandfather's name, the person who most needs the record
+        is often the person least able to draft a legal application in English on a government
+        website. That's exactly who Jaankari was built for.</p>
+        <p style="margin-top:12px">The portal also handles <strong>1st Appeal</strong>,
+        <strong>2nd Appeal</strong>, and application tracking online.</p>
+        <p style="margin-top:12px"><a href="/bihar-survey/">See the Bihar land survey guide →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="who">
+    <h2 class="sec-title">Central or state? Get this right first</h2>
+    <p class="sec-sub">Filing with the wrong government is the most common wasted month.</p>
+
+    <table>
+      <tr><th>Your subject</th><th>Which government</th><th>Where to file</th></tr>
+      <tr><td>Land records, khatiyan, mutation, survey, police, revenue</td><td><strong>State</strong></td><td>Your state's RTI portal, or post to the PIO of that office. Bihar: Jaankari.</td></tr>
+      <tr><td>Passport, income tax, railways, central ministries, nationalised banks</td><td><strong>Central</strong></td><td><a href="https://rtionline.gov.in/" target="_blank" rel="noopener">rtionline.gov.in</a></td></tr>
+      <tr><td>Municipal, panchayat, state electricity board</td><td><strong>State</strong> / local body</td><td>The body's own PIO.</td></tr>
+    </table>
+
+    <div class="note">
+      <strong>rtionline.gov.in is for the central government only.</strong> Land is a state subject —
+      you cannot file a land RTI there. Fees also vary by state; ₹10 is the central rate, and some
+      states charge differently. And not every state has an online portal — a posted application is
+      always valid.
+    </div>
+  </section>
+
+  <section id="templates">
+    <h2 class="sec-title">The templates</h2>
+    <p class="sec-sub">Replace the highlighted parts. Keep it boring, factual, and short. An RTI is
+    not a letter of complaint — the more you argue, the easier you are to reject.</p>
+
+    <h3 style="font-size:20px;margin:24px 0 4px">1 · Asking for a document</h3>
+    <div class="tmpl">
+      <h4>RTI application under Section 6(1)</h4>
+      To,<br>
+      The Public Information Officer,<br>
+      <span class="fill">name and full address of the office</span><br><br>
+
+      Subject: Request for information under the Right to Information Act, 2005<br><br>
+
+      Sir/Madam,<br><br>
+
+      I request the following information under Section 6(1) of the Right to Information Act, 2005:<br><br>
+
+      1. A certified copy of <span class="fill">describe the document exactly — khatiyan/deed/entry, with khata, khesra, mouza, anchal, district, and year if known</span>.<br><br>
+
+      2. If the said record is not available or not held by your office, please state that fact and
+      inform me which public authority holds it, and transfer this application to that authority under
+      Section 6(3) of the Act.<br><br>
+
+      I am enclosing an application fee of ₹10 by <span class="fill">IPO / court fee stamp / DD / cash receipt</span>.<br><br>
+
+      Please provide the information within 30 days as required under Section 7(1).<br><br>
+
+      Yours faithfully,<br>
+      <span class="fill">name</span><br>
+      <span class="fill">full postal address</span><br>
+      <span class="fill">phone</span><br>
+      Date: <span class="fill">date</span><br>
+      Place: <span class="fill">place</span>
+    </div>
+
+    <h3 style="font-size:20px;margin:28px 0 4px">2 · When your application has been ignored</h3>
+    <p style="color:var(--ink2);max-width:66ch">This is the one that works. Asking <em>who</em> is
+    holding your file, <em>since when</em>, and for the <em>notings</em>, changes the incentives —
+    because now a name is attached to the delay.</p>
+    <div class="tmpl">
+      <h4>RTI application — status of a pending application</h4>
+      To,<br>
+      The Public Information Officer,<br>
+      <span class="fill">office name and address</span><br><br>
+
+      Subject: Information under the RTI Act, 2005 regarding application dated
+      <span class="fill">date</span><br><br>
+
+      Sir/Madam,<br><br>
+
+      I submitted an application for <span class="fill">what — mutation / certified copy / scheme benefit</span>
+      on <span class="fill">date</span>, receipt/reference number <span class="fill">number</span>.
+      No decision has been communicated to me. Under Section 6(1) of the RTI Act, 2005, please provide:<br><br>
+
+      1. The current status of the said application.<br>
+      2. The date on which it was received in your office.<br>
+      3. The name and designation of every officer with whom the file has been pending, and the period
+      it was pending with each.<br>
+      4. Copies of all file notings and correspondence on the said application.<br>
+      5. The prescribed time limit within which such applications are to be disposed of, and the
+      reason for the delay in this case.<br>
+      6. The action proposed to be taken and the date by which it will be completed.<br><br>
+
+      Fee of ₹10 is enclosed by <span class="fill">mode</span>.<br><br>
+
+      Yours faithfully,<br>
+      <span class="fill">name, address, phone, date, place</span>
+    </div>
+
+    <h3 style="font-size:20px;margin:28px 0 4px">3 · First Appeal — no reply in 30 days</h3>
+    <div class="tmpl">
+      <h4>First Appeal under Section 19(1) — no fee</h4>
+      To,<br>
+      The First Appellate Authority,<br>
+      <span class="fill">same office — the FAA is an officer senior to the PIO</span><br><br>
+
+      Subject: First Appeal under Section 19(1) of the RTI Act, 2005<br><br>
+
+      Sir/Madam,<br><br>
+
+      I filed an RTI application dated <span class="fill">date</span> with the PIO,
+      <span class="fill">office</span> <span class="fill">(registration/diary number, if any)</span>.<br><br>
+
+      <span class="fill">Choose one:</span> No reply has been received within the 30 days prescribed
+      under Section 7(1), which is a deemed refusal under Section 7(2). <span class="fill">OR</span>
+      The reply received on <span class="fill">date</span> is incomplete/misleading for the following
+      reasons: <span class="fill">state them plainly, point by point</span>.<br><br>
+
+      I request that the PIO be directed to provide the information sought. As the statutory period
+      has lapsed, the information is to be provided free of cost under Section 7(6).<br><br>
+
+      Yours faithfully,<br>
+      <span class="fill">name, address, phone, date, place</span><br><br>
+
+      Enclosed: copy of the original RTI application, proof of fee, and any reply received.
+    </div>
+
+    <div class="note">
+      <strong>No fee is payable for a First Appeal.</strong> If someone asks you for one, they're
+      wrong. File it within 30 days of the deadline lapsing or of receiving an unsatisfactory reply.
+      The FAA must decide within 30 days.
+    </div>
+  </section>
+
+  <section id="ladder">
+    <h2 class="sec-title">The escalation ladder</h2>
+    <p class="sec-sub">Each rung is free. Keep every acknowledgement — the next rung depends on
+    proving you did the last one.</p>
+
+    <table>
+      <tr><th>Step</th><th>Who</th><th>When</th><th>Cost</th></tr>
+      <tr><td><strong>RTI application</strong> · s.6(1)</td><td>PIO of the office</td><td>Reply due in <strong>30 days</strong>. 48 hours if it concerns life or liberty.</td><td>₹10 (central). Free for BPL.</td></tr>
+      <tr><td><strong>First Appeal</strong> · s.19(1)</td><td>First Appellate Authority — senior to the PIO, same office</td><td>File within <strong>30 days</strong>. Decided within 30 days.</td><td><strong>Free</strong></td></tr>
+      <tr><td><strong>Second Appeal</strong> · s.19(3)</td><td>State Information Commission, or CIC for central bodies</td><td>File within <strong>90 days</strong> of the First Appeal decision or its lapse.</td><td><strong>Free</strong></td></tr>
+      <tr><td><strong>Penalty</strong> · s.20</td><td>Imposed <strong>only</strong> by the Information Commission — never the FAA</td><td>Where the PIO refused, delayed, misled, or destroyed records without reasonable cause.</td><td><strong>₹250/day, max ₹25,000 — from the officer's own pocket</strong></td></tr>
+    </table>
+
+    <div class="note calm">
+      <strong>Ask for the penalty explicitly in your Second Appeal.</strong> The Commission can impose
+      it on the PIO personally under Section 20 — but you should request it and show the dates. This
+      is the provision that gives the whole Act its teeth, and most applicants never invoke it.
+    </div>
+  </section>
+
+  <section id="mistakes">
+    <h2 class="sec-title">How RTIs get rejected</h2>
+    <p class="sec-sub">Almost always for form, not substance. Avoid these and most refusals evaporate.</p>
+
+    <details open>
+      <summary>Asking a question instead of asking for a record</summary>
+      <p>RTI gets you <em>information held on record</em> — not opinions, explanations, or answers
+      invented for you. <strong>"Why has my mutation not been done?"</strong> can be refused.
+      <strong>"Copies of all file notings on application no. X dated Y"</strong> cannot. Same
+      objective, different reception. Ask for documents, and let the documents answer the question.</p>
+    </details>
+    <details>
+      <summary>Explaining why you want it</summary>
+      <p>Section 6(2): you are <strong>not required to give any reason</strong>. Don't. Every sentence
+      of background story is a sentence someone can argue with, and a reason you supply is a reason
+      that can be judged inadequate. Keep it to what you want.</p>
+    </details>
+    <details>
+      <summary>Being vague about the record</summary>
+      <p>"All papers about my land" invites "please specify". Give khata, khesra, mouza, anchal,
+      district, year, application numbers, dates — everything you know. Precision is what makes
+      refusal difficult.</p>
+    </details>
+    <details>
+      <summary>Filing with the wrong authority and giving up</summary>
+      <p>If you file with the wrong office, <strong>Section 6(3) obliges them to transfer it</strong>
+      to the right one within 5 days — not to reject it. Cite 6(3) in the application (the templates
+      above do) and the "not our department" reply stops being an ending.</p>
+    </details>
+    <details>
+      <summary>Missing the appeal deadline</summary>
+      <p>30 days for the First Appeal, 90 for the Second. Diarise them the day you file. An unappealed
+      refusal simply stands, however wrong it was.</p>
+    </details>
+    <details>
+      <summary>Not keeping proof</summary>
+      <p>Keep the postal receipt, the acknowledgement, the diary number, screenshots of online
+      filings. The appeal is built on proving what you sent and when. Send by <strong>registered post
+      with acknowledgement due</strong> if filing on paper.</p>
+    </details>
+  </section>
+
+  <section id="limits">
+    <h2 class="sec-title">What RTI won't do</h2>
+    <p class="sec-sub">Being honest about the limits, so you don't waste a month.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>It won't decide your dispute</h3>
+        <p>RTI gets you the record. It does not settle who owns the land. If someone else is in
+        possession, you need a lawyer and a court — RTI only arms you with the paperwork.</p>
+      </div>
+      <div class="card">
+        <h3>It won't reach private bodies</h3>
+        <p>Only public authorities, and bodies substantially financed by government. A private bank
+        or company is out of reach — though the <em>regulator</em> is not.</p>
+      </div>
+      <div class="card">
+        <h3>Section 8 exemptions are real</h3>
+        <p>Some information can be legitimately withheld — personal information of third parties,
+        matters under investigation, and others. But it must be <em>reasoned</em>. A refusal that
+        cites no section at all is not a refusal, it's a delay.</p>
+      </div>
+    </div>
+
+    <div class="note warn">
+      <strong>One honest warning.</strong> RTIs about land can make you visible to people who would
+      rather you weren't. If your land is occupied by someone with local influence, think about
+      sequencing — talk to a lawyer, and consider <a href="https://nalsa.gov.in" target="_blank" rel="noopener">free legal aid through DLSA</a>
+      first. RTI is powerful, and power gets noticed. This is not a reason not to file. It is a
+      reason not to file carelessly.
+    </div>
+  </section>
+
+  <section>
+    <div class="note calm">
+      <strong>Why this page exists.</strong> Everything else on this site tells you which door to
+      knock on. This is what you do when nobody opens it. A ₹10 application with a 30-day statutory
+      clock and a personal penalty attached is, rupee for rupee, the most powerful thing an Indian
+      citizen can post.
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="f-note"><strong>We are not lawyers, agents, or the government.</strong> These templates
+    are general starting points, not legal advice. We never see your application — every filing is
+    between you and the public authority.</p>
+    <p class="f-note">Verified against RTI Online, the Jaankari portal and the RTI Act, 2005 in July
+    2026. State fees, portals and procedures vary and change. For anything involving a dispute,
+    possession, or another claimant, consult a lawyer — DLSA legal aid is free if you qualify.</p>
+    <p>Sources:
+      <a href="https://rtionline.gov.in/" target="_blank" rel="noopener">RTI Online (Central)</a> ·
+      <a href="https://jaankari.bihar.gov.in/" target="_blank" rel="noopener">Jaankari, Bihar</a> ·
+      <a href="https://cic.gov.in/" target="_blank" rel="noopener">Central Information Commission</a> ·
+      <a href="https://nalsa.gov.in" target="_blank" rel="noopener">NALSA</a>
+    </p>
+    <p style="margin-top:14px"><a href="/">← Back to Bharat Schemes</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
