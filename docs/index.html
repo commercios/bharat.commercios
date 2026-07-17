@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Bharat Schemes — every government scheme you're entitled to, in one place</title>
 <meta name="description" content="Discover central and state government schemes across India. Pick your state on the map or tell us who you are — we surface the schemes meant for you."/>
+<link rel="canonical" href="https://bharat.commercios.com/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://bharat.commercios.com/">
+<meta property="og:title" content="Bharat Schemes — every government scheme you are entitled to">
+<meta property="og:description" content="Find central and state government schemes you qualify for, in English, Hindi, Kannada and Tamil.">
+<meta property="og:site_name" content="Bharat">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@600;700&family=Noto+Sans+Kannada:wght@500;700&family=Noto+Sans+Tamil:wght@500;700&display=swap" rel="stylesheet">
@@ -267,9 +274,14 @@ footer a:hover{color:#fff}
 .spot-line{font-size:13px;color:var(--ink2);line-height:1.5}
 .spot-line span{display:block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--saffron-deep);margin-bottom:1px}
 .spot-cta{justify-content:center;margin-top:4px;padding:10px 16px;font-size:14px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--saffron);color:#fff;
+  padding:12px 18px;z-index:100;border-radius:0 0 8px 0;font-weight:600;text-decoration:none}
+.skip:focus{left:0}
+:focus-visible{outline:3px solid var(--saffron);outline-offset:2px}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header>
   <div class="wrap hd">
@@ -277,13 +289,13 @@ footer a:hover{color:#fff}
       <span class="mark" aria-hidden="true"></span>
       <span>Bharat Schemes<small>bharat.commercios.com</small></span>
     </a>
-    <nav class="nav">
-      <a href="#for-me" data-i18n="nav_forme">Find schemes for me</a>
-      <a href="#explore" data-i18n="nav_explore">Explore the map</a>
-      <a href="#how" data-i18n="nav_how">How it works</a>
-      <a href="/unclaimed/" style="color:var(--saffron-deep);font-weight:700">Unclaimed money</a>
-      <a href="/bihar-survey/" style="color:var(--saffron-deep);font-weight:700">Bihar land survey</a>
-      <a href="/rti/" style="color:var(--saffron-deep);font-weight:700">RTI</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="/" aria-current="page">Schemes</a>
+      <a href="/tenders/">Tenders</a>
+      <a href="/property/">Property</a>
+      <a href="/auctions/">Auctions</a>
+      <a href="/unclaimed/">Unclaimed money</a>
+      <a href="/rti/">RTI</a>
       <div class="langsw" id="langsw" role="group" aria-label="Language">
         <button data-lang="en" class="on">EN</button>
         <button data-lang="hi" lang="hi">हिं</button>
@@ -294,6 +306,8 @@ footer a:hover{color:#fff}
     </nav>
   </div>
 </header>
+
+<main id="main">
 
 <a id="top"></a>
 <section class="hero">
@@ -427,6 +441,8 @@ footer a:hover{color:#fff}
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="wrap">
     <div class="f-grid">
@@ -451,6 +467,20 @@ footer a:hover{color:#fff}
       <span data-i18n="footer_bottom">Data compiled July 2026 &middot; refreshed on a scheduled verification cycle. Always confirm details on the official portal before applying.</span>
       <span>&copy; bharat.commercios.com</span>
     </div>
+  </div>
+
+  <div class="wrap" style="max-width:1200px;margin:0 auto;padding:22px 24px 0;border-top:1px solid rgba(18,39,71,.07)">
+    <p style="font-size:13.5px;color:#6d7d99;max-width:70ch;margin-bottom:10px">
+      <strong>We are not the government.</strong> Bharat is operated by Commercios, a registered
+      private company. This site explains official schemes and links to official portals — we never
+      see your details, take fees, or process any application. Every application is made directly
+      between you and the department concerned.</p>
+    <p style="font-size:13px;color:#6d7d99;margin-bottom:18px">
+      Scheme details change. The department's own portal is the authority, not this page.
+      For the government's complete official scheme list, see
+      <a href="https://www.myscheme.gov.in" style="color:#e35c00">myScheme.gov.in</a>.
+      &nbsp;·&nbsp; Information checked: 17 July 2026
+    </p>
   </div>
 </footer>
 
