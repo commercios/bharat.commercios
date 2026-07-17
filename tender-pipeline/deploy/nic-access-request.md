@@ -1,7 +1,15 @@
-# Data access request to NIC — draft
+# Data access request to NIC
 
-**Before sending, fill in:** `[YOUR TITLE]`, `[COMPANY REGISTRATION DETAILS]`,
-`[PHONE]`. Everything else is ready.
+**Status:** drafted into Gmail (commercios.com@gmail.com) on 17-Jul-2026, awaiting
+CIN + phone, not yet sent.
+
+**Before sending, fill in:** `CIN`, `Phone`. If there is no CIN, delete the line
+rather than guess — the letter reads fine without it.
+
+**Follow-up:** if no reply by ~7 Aug 2026, follow up once. Treat continued silence
+as a no. Also worth phoning the CPPP helpdesk on 0120-4200462 — a spoken enquiry
+often routes faster than a cold email, and two minutes tells you whether a
+data-sharing route exists at all.
 
 **To:** cppp-nic@nic.in
 **Cc:** (consider) support-eproc@nic.in
@@ -18,11 +26,26 @@ tender information published on the Central Public Procurement Portal
 **About us**
 
 Commercios is a registered company in India. We operate
-**bharat.commercios.com**, a free public information portal that helps Indian
-citizens and small businesses find government information that is already
-published but scattered across many portals. Our first section, covering central
-and state welfare schemes, is live. Access is free, with no subscription,
-paywall, or advertising, and we have no revenue model on this information.
+**https://bharat.commercios.com**, a free public information portal that helps
+Indian citizens and small businesses use government information that is already
+published but scattered across many portals. Access is free — no subscription,
+paywall, or advertising — and we have no revenue model on this information.
+
+The site is live today with four sections, each of which explains an official
+process and links the citizen to the official portal to act on it:
+
+- **Government schemes** — central and state welfare schemes, in English, Hindi,
+  Kannada and Tamil.
+- **Unclaimed money** — how to search the RBI's UDGAM portal and IEPF for
+  deposits and shares left unclaimed, including by deceased family members.
+- **Bihar land survey** — the Special Survey, the vanshavali and self-declaration
+  forms, and the stages at which a landholder must act.
+- **Right to Information** — how to use the RTI Act when a department does not
+  respond.
+
+We mention this because it shows the shape of what we are asking for. We do not
+host copies of government systems or compete with them. Every page ends by
+sending the citizen to the official portal.
 
 **What we are asking for**
 
@@ -52,10 +75,11 @@ the published access policies of the relevant portals:
 - `eprocure.gov.in` does not publish a robots.txt.
 
 We have taken the state portals' directive as a clear instruction and have **not**
-collected data from them. We have not built any workaround, and we have not used
-authenticated sessions to reach listings that are not available to anonymous
-visitors. We would rather ask permission and be told no than proceed on the basis
-that silence implies consent.
+collected data from them. We disabled that part of our own software rather than
+run it. We have not built any workaround, and we have not used authenticated
+sessions to reach listings that are not available to anonymous visitors. We would
+rather ask permission and be told no than proceed on the basis that silence
+implies consent.
 
 **Our commitments**
 
@@ -87,10 +111,10 @@ Thank you for your time and for the work behind the portal.
 Yours faithfully,
 
 **Arpit Dalvar**
-[YOUR TITLE], Commercios
-[COMPANY REGISTRATION DETAILS — CIN / GST]
+Founder & Director, Commercios
+CIN: [FILL IN]
 Email: commercios.com@gmail.com
-Phone: [PHONE]
+Phone: [FILL IN]
 Web: https://bharat.commercios.com
 
 ---
