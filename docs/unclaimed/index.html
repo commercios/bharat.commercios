@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unclaimed Money — find bank deposits, shares and dividends left in your family's name | Bharat</title>
+<meta name="description" content="Over ₹78,000 crore sits unclaimed in Indian banks. Search RBI's free UDGAM portal for forgotten deposits — including those of deceased parents and grandparents. A plain-English guide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#122747; --ink2:#3a4f73; --ink3:#6d7d99;
+  --paper:#fcf8f0; --paper2:#ffffff; --card:#ffffff;
+  --saffron:#ff7a1a; --saffron-deep:#e35c00; --saffron-soft:#fff1e2;
+  --green:#0f8a4c; --green-soft:#e6f4ec;
+  --line:rgba(18,39,71,.12); --line2:rgba(18,39,71,.07);
+  --shadow:0 1px 2px rgba(18,39,71,.06), 0 12px 30px -18px rgba(18,39,71,.28);
+  --shadow-lg:0 30px 70px -30px rgba(18,39,71,.45);
+  --radius:16px; --radius-sm:11px;
+  --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+a{color:var(--saffron-deep)}
+h1,h2,h3{font-family:"Bricolage Grotesque",Inter,sans-serif;letter-spacing:-.02em;line-height:1.15}
+
+/* header — matches the schemes page */
+header{background:var(--paper2);border-bottom:1px solid var(--line2);position:sticky;top:0;z-index:50}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-family:"Bricolage Grotesque";
+  font-size:20px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.brand small{display:block;font-size:11px;font-weight:500;color:var(--ink3);letter-spacing:0}
+.mark{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--saffron),var(--green));flex:none}
+.nav{display:flex;align-items:center;gap:20px;font-size:14.5px;font-weight:500;flex-wrap:wrap}
+.nav a{color:var(--ink2);text-decoration:none}
+.nav a:hover{color:var(--saffron-deep)}
+.verified-pill{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;
+  color:var(--green);background:var(--green-soft);padding:6px 12px;border-radius:999px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
+
+/* hero */
+.hero{padding:44px 0 26px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:12.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--saffron-deep);margin-bottom:16px}
+h1{font-size:clamp(32px,5vw,54px);font-weight:800;max-width:16ch}
+.lede{font-size:clamp(17px,2vw,20px);color:var(--ink2);max-width:60ch;margin-top:18px}
+.bignum{font-family:"Bricolage Grotesque";font-size:clamp(44px,8vw,86px);font-weight:800;
+  color:var(--saffron-deep);line-height:1;letter-spacing:-.03em}
+.bignum small{display:block;font-family:Inter;font-size:15px;font-weight:500;color:var(--ink3);
+  letter-spacing:0;margin-top:10px}
+.hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:center}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr;gap:24px}}
+
+.btn{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);background:var(--paper2);
+  color:var(--ink);font-weight:600;font-size:15px;padding:13px 20px;border-radius:12px;
+  text-decoration:none;transition:.14s;cursor:pointer}
+.btn:hover{border-color:var(--saffron);transform:translateY(-1px)}
+.btn.primary{background:var(--saffron);border-color:var(--saffron);color:#fff}
+.btn.primary:hover{background:var(--saffron-deep);border-color:var(--saffron-deep)}
+.cta-row{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+
+section{padding:34px 0}
+.sec-title{font-size:clamp(24px,3vw,32px);font-weight:800;margin-bottom:8px}
+.sec-sub{color:var(--ink2);max-width:65ch;margin-bottom:24px}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;box-shadow:var(--shadow)}
+.card h3{font-size:19px;font-weight:700;margin-bottom:8px}
+.card p{color:var(--ink2);font-size:15px}
+.card .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--saffron-deep);background:var(--saffron-soft);padding:4px 9px;border-radius:6px;margin-bottom:12px}
+
+/* steps */
+.steps{counter-reset:s;display:grid;gap:14px;margin-top:8px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:20px 20px 20px 62px;
+  position:relative;box-shadow:var(--shadow)}
+.step:before{counter-increment:s;content:counter(s);position:absolute;left:20px;top:18px;
+  width:28px;height:28px;border-radius:8px;background:var(--saffron);color:#fff;
+  font-family:"Bricolage Grotesque";font-weight:800;font-size:15px;display:grid;place-items:center}
+.step h3{font-size:17px;font-weight:700;margin-bottom:5px}
+.step p{color:var(--ink2);font-size:14.8px}
+.step .need{margin-top:9px;font-size:13.5px;color:var(--ink3);border-left:2px solid var(--line);padding-left:11px}
+
+.note{background:var(--saffron-soft);border:1px solid rgba(255,122,26,.28);border-radius:var(--radius-sm);
+  padding:18px 20px;margin:22px 0}
+.note strong{color:var(--saffron-deep)}
+.note.calm{background:var(--green-soft);border-color:rgba(15,138,76,.25)}
+.note.calm strong{color:var(--green)}
+
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius-sm);overflow:hidden;font-size:14.8px;margin-top:8px}
+th,td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{background:var(--paper);font-weight:700;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3)}
+tr:last-child td{border-bottom:none}
+
+details{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:16px 20px;margin-bottom:10px}
+summary{font-weight:600;cursor:pointer;font-size:15.5px}
+details p{color:var(--ink2);font-size:14.8px;margin-top:10px}
+
+footer{border-top:1px solid var(--line2);background:var(--paper2);padding:34px 0;margin-top:30px;
+  font-size:14px;color:var(--ink3)}
+.f-note{max-width:70ch;margin-bottom:14px}
+.hi{font-family:"Noto Sans Devanagari",Inter,sans-serif}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hd">
+    <a class="brand" href="/">
+      <span class="mark" aria-hidden="true"></span>
+      <span>Bharat<small>bharat.commercios.com</small></span>
+    </a>
+    <nav class="nav">
+      <a href="/">Schemes</a>
+      <a href="#how">How to search</a>
+      <a href="#deceased">If they've passed away</a>
+      <span class="verified-pill"><span class="dot"></span>Official sources</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Unclaimed Money</div>
+        <h1>Your family may have money sitting in a bank they forgot about.</h1>
+        <p class="lede">A closed-down account. A fixed deposit that matured and was never
+        withdrawn. Shares bought decades ago. When nobody claims them for ten years, banks
+        hand the money to the RBI — and it waits there. Indefinitely. For you.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://udgam.rbi.org.in/unclaimed-deposits/" target="_blank" rel="noopener">
+            Search RBI's UDGAM portal →</a>
+          <a class="btn" href="#how">How it works</a>
+        </div>
+      </div>
+      <div>
+        <div class="bignum">₹78,000<small>crore — the RBI's estimate of unclaimed deposits lying in Indian banks, early 2026. Roughly ₹550 for every person in the country.</small></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="note calm">
+    <strong>This costs nothing and there is no catch.</strong> UDGAM is the Reserve Bank of
+    India's own portal. It is free. Nobody needs to be paid to search it for you, and nobody
+    should ask for a commission to "recover" your money — you can do the whole thing yourself.
+    We are not involved in your claim and never see your details.
+  </div>
+
+  <section id="what">
+    <h2 class="sec-title">Three separate places money goes missing</h2>
+    <p class="sec-sub">They're run by different bodies and don't talk to each other. Check all three —
+    a family that has money in one often has it in another, for the same reason: somebody died,
+    moved, or simply forgot.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="tag">Bank deposits</span>
+        <h3>UDGAM — RBI</h3>
+        <p>Savings accounts, current accounts, fixed deposits untouched for 10 years. Covers 30 banks,
+        about 90% of all unclaimed deposit value. Search by name plus one ID.</p>
+        <p style="margin-top:12px"><a href="https://udgam.rbi.org.in/unclaimed-deposits/" target="_blank" rel="noopener">udgam.rbi.org.in →</a></p>
+      </div>
+      <div class="card">
+        <span class="tag">Shares &amp; dividends</span>
+        <h3>IEPF</h3>
+        <p>If shares paid dividends nobody collected for seven straight years, the shares
+        <em>and</em> the money move to the Investor Education and Protection Fund. Common with
+        inherited share certificates nobody knew existed.</p>
+        <p style="margin-top:12px"><a href="https://iepf.gov.in" target="_blank" rel="noopener">iepf.gov.in →</a></p>
+      </div>
+      <div class="card">
+        <span class="tag">Everything else</span>
+        <h3>Unclaimed Assets Portal</h3>
+        <p>The government's newer combined search — bank deposits, insurance policies, shares
+        and mutual funds in one place. Start here if you don't know what you're looking for.</p>
+        <p style="margin-top:12px"><a href="https://unclaimedassetsportal.in" target="_blank" rel="noopener">unclaimedassetsportal.in →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <h2 class="sec-title">Searching UDGAM, step by step</h2>
+    <p class="sec-sub">Fifteen minutes. You need a mobile number and one ID document.</p>
+
+    <div class="steps">
+      <div class="step">
+        <h3>Register with your mobile number</h3>
+        <p>Go to <a href="https://udgam.rbi.org.in/unclaimed-deposits/" target="_blank" rel="noopener">udgam.rbi.org.in</a>
+        and sign up. An OTP comes to your phone. This is the RBI's own site — check the address
+        bar says <strong>udgam.rbi.org.in</strong> and nothing else.</p>
+      </div>
+      <div class="step">
+        <h3>Enter the account holder's name</h3>
+        <p>Not necessarily your name. Your father's, your mother's, a grandparent's. Then pick a
+        bank, and give one identifier.</p>
+        <div class="need">Any one of: PAN · Voter ID · Driving licence · Passport · Date of birth</div>
+      </div>
+      <div class="step">
+        <h3>Try the name every way it was ever written</h3>
+        <p>This is where most searches fail. Old bank records carry initials, expansions,
+        misspellings, maiden names, and inconsistent surname order. <strong>A nil result for one
+        spelling is not a nil result.</strong> Try each variation separately.</p>
+        <div class="need">Ram Kumar Sharma · R. K. Sharma · Ramkumar Sharma · Sharma Ram Kumar</div>
+      </div>
+      <div class="step">
+        <h3>Note the UDRN if something appears</h3>
+        <p>A match returns a <strong>UDRN</strong> — an Unclaimed Deposit Reference Number. Write it
+        down. It identifies the deposit without exposing the account number.</p>
+      </div>
+      <div class="step">
+        <h3>Claim from the bank — not from UDGAM</h3>
+        <p>UDGAM finds money. It doesn't release it. Take the UDRN to that bank's branch with your
+        ID and proof of your connection to the account holder. The bank runs its own claim process.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Only 30 banks are covered.</strong> They hold roughly 90% of the value — but if your
+      family banked somewhere smaller, or with a co-operative bank, UDGAM may show nothing even
+      though money exists. In that case write to that bank directly and ask them to search their
+      unclaimed/dormant register in the account holder's name. They are obliged to look.
+    </div>
+  </section>
+
+  <section id="deceased">
+    <h2 class="sec-title">If the account holder has died</h2>
+    <p class="sec-sub">This is the most common situation — and the hardest. A large share of that
+    ₹78,000 crore belongs to people who are no longer alive to claim it.</p>
+
+    <p style="color:var(--ink2);max-width:65ch;margin-bottom:18px">Finding the deposit is the easy
+    half. Proving you are entitled to it is the real work, and it's the same problem as inheriting
+    land: you must document the chain from the person named on the account down to you.</p>
+
+    <table>
+      <tr><th>What you'll be asked for</th><th>Where it comes from</th></tr>
+      <tr><td>Death certificate of the account holder</td><td>Municipality or gram panchayat where the death was registered. Your state's eDistrict portal may issue it online.</td></tr>
+      <tr><td>Proof you are the legal heir</td><td><strong>Legal heir certificate</strong> (tehsildar / revenue office) or <strong>succession certificate</strong> (civil court, for larger amounts or where there's disagreement).</td></tr>
+      <tr><td>Your own KYC</td><td>Aadhaar, PAN.</td></tr>
+      <tr><td>Nomination, if one was made</td><td>The bank holds this. If your relative nominated someone, that person is paid first — this can be much quicker.</td></tr>
+      <tr><td>Consent of other heirs</td><td>If there are several of you, banks usually want the others to sign a no-objection.</td></tr>
+    </table>
+
+    <div class="note">
+      <strong>Check for a nomination before starting anything else.</strong> If the account had a
+      registered nominee, the bank pays the nominee without a succession certificate — turning a
+      months-long court process into a branch visit. Ask the bank this question first. It is the
+      single biggest time-saver available, and almost nobody asks it.
+    </div>
+
+    <p style="color:var(--ink2);max-width:65ch">One honest warning: if the amount is small and there
+    is no nomination, a succession certificate can cost more in court fees, lawyer's fees and time
+    than the deposit is worth. Find out the amount before you commit to the process.</p>
+  </section>
+
+  <section id="careful">
+    <h2 class="sec-title">Be careful of</h2>
+
+    <details open>
+      <summary>Anyone who offers to "recover" your money for a percentage</summary>
+      <p>The search is free and takes fifteen minutes. The claim is made at your own bank branch.
+      There is no step that requires an agent. If someone wants a cut, they are selling you
+      something you can do yourself this afternoon.</p>
+      <p>Don't take our word for it — this is the IEPF Authority, on its own homepage:</p>
+      <p style="border-left:3px solid var(--saffron);padding-left:14px;margin-top:10px;color:var(--ink)">
+        <em>"IEPFA does not support any middleman, broker, or agent for refund claims."</em><br>
+        <em>"The refund process through IEPFA is simple, easy, and free of cost."</em><br>
+        <em>"Engaging middlemen may lead to claim discrepancies or rejections."</em><br>
+        <em>"Claimants should report immediately if approached or assured by brokers/middlemen
+        regarding claim refunds."</em>
+      </p>
+      <p style="font-size:13.5px;color:var(--ink3)">— <a href="https://iepf.gov.in" target="_blank" rel="noopener">iepf.gov.in</a>,
+      read July 2026. A government body does not repeat itself four times on its own front page
+      without a reason.</p>
+    </details>
+    <details>
+      <summary>Any site that isn't udgam.rbi.org.in</summary>
+      <p>Unclaimed money is exactly the sort of promise scam sites are built around. The RBI's
+      portal is <strong>udgam.rbi.org.in</strong>. IEPF is <strong>iepf.gov.in</strong>. If a site
+      looks similar but the address differs by even a character, leave.</p>
+    </details>
+    <details>
+      <summary>Anyone asking for a fee to release your own money</summary>
+      <p>Banks do not charge you to return your deposit. A demand for "processing" or "clearance"
+      fees before payout is the shape of an advance-fee fraud. If it has already happened, call
+      <strong>1930</strong> immediately — the first hour matters most.</p>
+    </details>
+    <details>
+      <summary>Sharing your UDRN or account details with anyone who contacts you</summary>
+      <p>You approach the bank. The bank does not approach you about this. An unsolicited call
+      about your unclaimed deposit is not the bank.</p>
+    </details>
+  </section>
+
+  <section id="stuck">
+    <h2 class="sec-title">If the bank stalls</h2>
+    <p class="sec-sub">It happens — especially with old accounts and branches that have merged.
+    You have escalation routes, in this order.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="tag">Step 1</span>
+        <h3>The bank's own grievance cell</h3>
+        <p>Put it in writing, keep the acknowledgement, note the date. Everything below depends on
+        having asked properly first.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Step 2</span>
+        <h3>RBI Ombudsman</h3>
+        <p>Free. If the bank hasn't resolved it in 30 days, escalate at
+        <a href="https://cms.rbi.org.in" target="_blank" rel="noopener">cms.rbi.org.in</a>.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Step 3</span>
+        <h3>RTI</h3>
+        <p>Public sector banks answer to the RTI Act. ₹10, and a 30-day statutory deadline to
+        respond. Remarkably effective at unsticking a file that has been "under process" for
+        months.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="note calm">
+      <strong>Why we built this.</strong> We were trying to trace a great-grandfather's land
+      records, lost in a disaster, and learned something that applies far more widely: <em>losing
+      your copy of a document is not losing the thing itself.</em> The state keeps its own records.
+      Banks keep theirs. The money and the land are still there — waiting for someone who knows
+      which door to knock on. That's all this page is.
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="f-note"><strong>We are not a bank, an agent, or a government body.</strong> This page
+    explains official processes and links to official portals. We never see your name, your search,
+    or your money. Every claim is made directly between you and your bank or the RBI.</p>
+    <p class="f-note">Information verified against RBI and IEPF sources in July 2026. Processes and
+    figures change — the official portal is always the authority, not us. This is general
+    information, not legal or financial advice; for succession disputes, consult a lawyer.</p>
+    <p>Sources:
+      <a href="https://udgam.rbi.org.in/unclaimed-deposits/" target="_blank" rel="noopener">RBI UDGAM</a> ·
+      <a href="https://www.rbi.org.in/commonman/english/scripts/FAQs.aspx?Id=3579" target="_blank" rel="noopener">RBI UDGAM FAQ</a> ·
+      <a href="https://iepf.gov.in" target="_blank" rel="noopener">IEPF</a> ·
+      <a href="https://unclaimedassetsportal.in" target="_blank" rel="noopener">Unclaimed Assets Portal</a> ·
+      <a href="https://cms.rbi.org.in" target="_blank" rel="noopener">RBI Ombudsman</a>
+    </p>
+    <p style="margin-top:14px"><a href="/">← Back to Bharat Schemes</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
