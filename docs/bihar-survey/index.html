@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bihar Land Survey — what to do if your land is still in an ancestor's name | Bharat</title>
+<meta name="description" content="Bihar is re-surveying all land. If your land is recorded in a dead grandfather's or great-grandfather's name, you must file a vanshavali and Prapatra-2. A plain-English guide to the forms, the stages, and the real deadline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#122747; --ink2:#3a4f73; --ink3:#6d7d99;
+  --paper:#fcf8f0; --paper2:#ffffff; --card:#ffffff;
+  --saffron:#ff7a1a; --saffron-deep:#e35c00; --saffron-soft:#fff1e2;
+  --green:#0f8a4c; --green-soft:#e6f4ec;
+  --red:#c62828; --red-soft:#fdecea;
+  --line:rgba(18,39,71,.12); --line2:rgba(18,39,71,.07);
+  --shadow:0 1px 2px rgba(18,39,71,.06), 0 12px 30px -18px rgba(18,39,71,.28);
+  --radius:16px; --radius-sm:11px;
+  --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+a{color:var(--saffron-deep)}
+h1,h2,h3{font-family:"Bricolage Grotesque",Inter,sans-serif;letter-spacing:-.02em;line-height:1.15}
+.hi{font-family:"Noto Sans Devanagari",Inter,sans-serif}
+
+header{background:var(--paper2);border-bottom:1px solid var(--line2);position:sticky;top:0;z-index:50}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-family:"Bricolage Grotesque";
+  font-size:20px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.brand small{display:block;font-size:11px;font-weight:500;color:var(--ink3);letter-spacing:0}
+.mark{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--saffron),var(--green));flex:none}
+.nav{display:flex;align-items:center;gap:20px;font-size:14.5px;font-weight:500;flex-wrap:wrap}
+.nav a{color:var(--ink2);text-decoration:none}
+.nav a:hover{color:var(--saffron-deep)}
+.verified-pill{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;
+  color:var(--green);background:var(--green-soft);padding:6px 12px;border-radius:999px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
+
+.hero{padding:44px 0 26px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:12.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--saffron-deep);margin-bottom:16px}
+h1{font-size:clamp(31px,4.6vw,50px);font-weight:800;max-width:18ch}
+.lede{font-size:clamp(17px,2vw,20px);color:var(--ink2);max-width:62ch;margin-top:18px}
+
+.btn{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);background:var(--paper2);
+  color:var(--ink);font-weight:600;font-size:15px;padding:13px 20px;border-radius:12px;
+  text-decoration:none;transition:.14s;cursor:pointer}
+.btn:hover{border-color:var(--saffron);transform:translateY(-1px)}
+.btn.primary{background:var(--saffron);border-color:var(--saffron);color:#fff}
+.btn.primary:hover{background:var(--saffron-deep);border-color:var(--saffron-deep)}
+.cta-row{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+
+section{padding:34px 0}
+.sec-title{font-size:clamp(24px,3vw,32px);font-weight:800;margin-bottom:8px}
+.sec-sub{color:var(--ink2);max-width:66ch;margin-bottom:24px}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:900px){.grid,.grid2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;box-shadow:var(--shadow)}
+.card h3{font-size:19px;font-weight:700;margin-bottom:8px}
+.card p{color:var(--ink2);font-size:15px}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--saffron-deep);background:var(--saffron-soft);padding:4px 9px;border-radius:6px;margin-bottom:12px}
+
+.alarm{background:var(--red-soft);border:1px solid rgba(198,40,40,.3);border-left:4px solid var(--red);
+  border-radius:var(--radius-sm);padding:20px 22px;margin:22px 0}
+.alarm strong{color:var(--red)}
+.note{background:var(--saffron-soft);border:1px solid rgba(255,122,26,.28);border-radius:var(--radius-sm);
+  padding:18px 20px;margin:22px 0}
+.note strong{color:var(--saffron-deep)}
+.note.calm{background:var(--green-soft);border-color:rgba(15,138,76,.25)}
+.note.calm strong{color:var(--green)}
+
+.steps{counter-reset:s;display:grid;gap:14px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:20px 20px 20px 62px;position:relative;box-shadow:var(--shadow)}
+.step:before{counter-increment:s;content:counter(s);position:absolute;left:20px;top:18px;
+  width:28px;height:28px;border-radius:8px;background:var(--saffron);color:#fff;
+  font-family:"Bricolage Grotesque";font-weight:800;font-size:15px;display:grid;place-items:center}
+.step h3{font-size:17px;font-weight:700;margin-bottom:5px}
+.step p{color:var(--ink2);font-size:14.8px}
+.step .need{margin-top:9px;font-size:13.5px;color:var(--ink3);border-left:2px solid var(--line);padding-left:11px}
+
+.timeline{display:grid;gap:0;margin-top:10px}
+.tl{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line2)}
+@media(max-width:700px){.tl{grid-template-columns:1fr;gap:4px}}
+.tl-stage{font-family:"Bricolage Grotesque";font-weight:800;font-size:15px;color:var(--ink)}
+.tl-stage span{display:block;font-family:"Noto Sans Devanagari";font-size:13px;font-weight:600;color:var(--ink3)}
+.tl-body{color:var(--ink2);font-size:14.8px}
+.tl.crit{background:var(--red-soft);border-radius:var(--radius-sm);padding:16px;border-bottom:none}
+.tl.crit .tl-stage{color:var(--red)}
+
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius-sm);overflow:hidden;font-size:14.8px;margin-top:8px}
+th,td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{background:var(--paper);font-weight:700;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3)}
+tr:last-child td{border-bottom:none}
+code{background:var(--paper);border:1px solid var(--line2);border-radius:5px;padding:2px 6px;
+  font-size:13.5px;font-family:ui-monospace,Menlo,monospace}
+
+details{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:16px 20px;margin-bottom:10px}
+summary{font-weight:600;cursor:pointer;font-size:15.5px}
+details p{color:var(--ink2);font-size:14.8px;margin-top:10px}
+
+footer{border-top:1px solid var(--line2);background:var(--paper2);padding:34px 0;margin-top:30px;
+  font-size:14px;color:var(--ink3)}
+.f-note{max-width:70ch;margin-bottom:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hd">
+    <a class="brand" href="/">
+      <span class="mark" aria-hidden="true"></span>
+      <span>Bharat<small>bharat.commercios.com</small></span>
+    </a>
+    <nav class="nav">
+      <a href="/">Schemes</a>
+      <a href="/unclaimed/">Unclaimed money</a>
+      <a href="#stages">Survey stages</a>
+      <a href="#vanshavali">Vanshavali</a>
+      <span class="verified-pill"><span class="dot"></span>Official sources</span>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">Bihar Special Survey · बिहार विशेष सर्वेक्षण</div>
+    <h1>Bihar is rewriting who owns every piece of land in the state.</h1>
+    <p class="lede">If your family's land is still recorded in the name of a grandfather or
+    great-grandfather who has died, and nobody files a claim, the new record can be written
+    without your name on it. Fixing that afterwards is a court case. Filing now is a form.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="https://dlrs.bihar.gov.in/" target="_blank" rel="noopener">
+        Directorate of Land Records &amp; Survey →</a>
+      <a class="btn" href="#stages">Find your village's stage</a>
+    </div>
+  </section>
+
+  <div class="alarm">
+    <strong>December 2026 is not your deadline.</strong> That's the outer date for the whole
+    state. Your real deadline is whenever <em>your mouza's</em> draft record is published — after
+    which the objection window is short and specific. Villages are being processed at different
+    speeds. <strong>Find your village's stage before you do anything else on this page.</strong>
+  </div>
+
+  <section id="why">
+    <h2 class="sec-title">Why this survey is different</h2>
+    <p class="sec-sub">Bihar's land records are mostly from surveys done a century ago. This one
+    replaces them. It is not an update — it produces a new Record of Rights.</p>
+
+    <div class="grid">
+      <div class="card">
+        <span class="tag">The problem it creates</span>
+        <h3>Dead men own a lot of Bihar</h3>
+        <p>Land routinely sits in a great-grandfather's name because nobody ever did the mutation.
+        Everyone in the village knows whose it is. <strong>The new record won't.</strong> It records
+        what's filed, not what's known.</p>
+      </div>
+      <div class="card">
+        <span class="tag">The opening it creates</span>
+        <h3>A one-time chance to fix it</h3>
+        <p>The same survey that endangers your claim is also the cheapest opportunity in a century
+        to get the record corrected into your name — by filing a form rather than fighting a suit.</p>
+      </div>
+      <div class="card">
+        <span class="tag">The reality</span>
+        <h3>It is running late and understaffed</h3>
+        <p>The deadline has already moved from July to December 2026. The Directorate's own notices
+        are full of contract terminations and strikes. <strong>Don't read delay as safety</strong> —
+        it means your village could be processed with little warning.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="stages">
+    <h2 class="sec-title">The stages — and where the danger is</h2>
+    <p class="sec-sub">The survey moves through your mouza in order. Which stage you're at decides
+    what you can still do.</p>
+
+    <div class="timeline">
+      <div class="tl">
+        <div class="tl-stage">Announcement<span>उद्घोषणा</span></div>
+        <div class="tl-body">The survey is declared for your area. A camp office opens. <strong>This is
+        when you should file</strong> — everything is easier now than later.</div>
+      </div>
+      <div class="tl">
+        <div class="tl-stage">Kistwar<span>किस्तवार</span></div>
+        <div class="tl-body">Physical plot-by-plot mapping. Surveyors walk the land and draw boundaries.
+        Be present if you can, or send someone who knows the boundaries.</div>
+      </div>
+      <div class="tl">
+        <div class="tl-stage">Khanapuri<span>खानापुरी</span></div>
+        <div class="tl-body">Names are entered against plots — <strong>from what has been filed.</strong>
+        This is the moment your Prapatra-2 and vanshavali either exist or don't. If they don't, someone
+        else's account of your land goes on the record instead.</div>
+      </div>
+      <div class="tl crit">
+        <div class="tl-stage">Draft published<span>प्रारूप प्रकाशन</span></div>
+        <div class="tl-body"><strong>The clock you actually care about starts here.</strong> The draft
+        record goes on public display. You get a defined, short window to object. Miss it and the
+        draft hardens into the final record.</div>
+      </div>
+      <div class="tl">
+        <div class="tl-stage">Objections<span>दावा / आपत्ति</span></div>
+        <div class="tl-body">You file an objection and it's heard. Still administrative — still cheap.
+        This is the last easy exit.</div>
+      </div>
+      <div class="tl">
+        <div class="tl-stage">Final publication<span>अंतिम प्रकाशन</span></div>
+        <div class="tl-body">The new Record of Rights is law. After this, correcting it means civil
+        court — years, lawyers, and an uphill burden of proof.</div>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Call and ask. Don't guess.</strong> The Directorate's helpline is
+      <strong>0612&#8209;2280012</strong>. Ask one question: <em>"What stage has the survey reached in
+      my mouza?"</em> Have your district, anchal (block) and mouza ready. If the phone doesn't work,
+      the district <strong>Bandobast Karyalaya</strong> (settlement office) is the physical answer.
+    </div>
+  </section>
+
+  <section id="find">
+    <h2 class="sec-title">First: find what the record already says</h2>
+    <p class="sec-sub">Free, online, and it tells you which fight you're actually in. You need
+    <strong>district, anchal, and mouza</strong> to search anything.</p>
+
+    <div class="steps">
+      <div class="step">
+        <h3>Look for the khatiyan (खतियान)</h3>
+        <p>The Record of Rights from Bihar's old Cadastral Survey — roughly 1900 to 1920.
+        <strong>If your great-grandfather held land then, this is where his name is written.</strong>
+        It is the single document most likely to name him directly.</p>
+        <div class="need">Search at <a href="https://biharbhumi.bihar.gov.in/" target="_blank" rel="noopener">biharbhumi.bihar.gov.in</a> → Bhu-Abhilekh / खतियान</div>
+      </div>
+      <div class="step">
+        <h3>Check the Jamabandi (जमाबंदी)</h3>
+        <p>The current holding register — who the state thinks holds it <em>now</em>, and who's been
+        paying rent. Same portal.</p>
+        <div class="need">Whose name is on it? That one answer decides whether this is paperwork or a dispute.</div>
+      </div>
+      <div class="step">
+        <h3>Compare the two</h3>
+        <p>Khatiyan says great-grandfather, Jamabandi says great-grandfather → the chain never moved;
+        you're reconstructing it. Jamabandi says your father → the chain moved and you're extending it.
+        Jamabandi says a stranger → <strong>stop and get a lawyer before filing anything.</strong></p>
+      </div>
+      <div class="step">
+        <h3>Look at the map (भू-नक्शा)</h3>
+        <p>Bhu-Naksha shows the plot boundaries on record. Worth checking before kistwar, so you know
+        what you're claiming and can spot a boundary that's already wrong.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="vanshavali">
+    <h2 class="sec-title">The two forms that matter</h2>
+    <p class="sec-sub">Both are on the Directorate's homepage. The links are in Hindi — here's exactly
+    what to look for.</p>
+
+    <div class="grid2">
+      <div class="card">
+        <span class="tag">Self-declaration</span>
+        <h3>Prapatra-2 · प्रपत्र-2</h3>
+        <p>Your declaration of what land you hold and how you came to hold it. This is the core
+        filing — the thing that puts your claim in front of the surveyor.</p>
+        <p style="margin-top:12px">On <a href="https://dlrs.bihar.gov.in/" target="_blank" rel="noopener">dlrs.bihar.gov.in</a>, look for:</p>
+        <p class="hi" style="margin-top:8px;font-weight:600;color:var(--ink)">स्व-घोषणा हेतु प्रपत्र-2 यहां डाउनलोड करें</p>
+        <p class="hi" style="margin-top:4px;font-weight:600;color:var(--ink)">स्व-घोषणा हेतु प्रपत्र-2 यहाँ से समर्पित करें</p>
+        <p style="font-size:13.5px;color:var(--ink3);margin-top:6px">("download Prapatra-2" and "submit Prapatra-2 here")</p>
+      </div>
+      <div class="card">
+        <span class="tag">Family tree</span>
+        <h3>Prapatra-3(1) · प्रपत्र-3(1)</h3>
+        <p><strong>This is the one built for your situation.</strong> The vanshavali — the pedigree
+        linking the dead person named on the record down to you. Required for ancestral property held
+        in a grandfather's or great-grandfather's name, whether it came via khatiyan or a sale deed.</p>
+        <p style="margin-top:12px">Look for:</p>
+        <p class="hi" style="margin-top:8px;font-weight:600;color:var(--ink)">वंशावली हेतु प्रपत्र-3(1) यहां डाउनलोड करें</p>
+        <p style="font-size:13.5px;color:var(--ink3);margin-top:6px">("download Prapatra-3(1) for vanshavali")</p>
+      </div>
+    </div>
+
+    <div class="note calm">
+      <strong>The vanshavali does not need Sarpanch approval.</strong> A great many people are told
+      otherwise and lose weeks chasing a signature that isn't required. You can self-certify it and
+      submit it with your Prapatra-2.
+    </div>
+
+    <div class="note">
+      <strong>Check what you filed actually landed.</strong> The Directorate publishes an
+      "उपलोड किए गए स्व घोषणा / वंशावली यहाँ देखें" — <em>view uploaded self-declaration/vanshavali</em>.
+      Server problems have been a running complaint throughout this survey. <strong>Submitting is not
+      the same as being received.</strong> Go back and confirm yours is visible, and keep a screenshot
+      and an acknowledgement.
+    </div>
+  </section>
+
+  <section id="docs">
+    <h2 class="sec-title">What you'll need</h2>
+    <p class="sec-sub">Gather these before you fill anything in. The vanshavali is only as strong as
+    the chain you can evidence.</p>
+
+    <table>
+      <tr><th>Document</th><th>Why / where</th></tr>
+      <tr><td>Khatiyan copy</td><td>Names the original holder. Bhu-Abhilekh on the Bihar Bhumi portal.</td></tr>
+      <tr><td>Death certificates</td><td>For each person in the chain who has died. Municipality or panchayat where the death was registered. <strong>Old deaths are often unregistered</strong> — see below.</td></tr>
+      <tr><td>Proof of relationship</td><td>Anything linking generations: old ration cards, school records, voter lists, Aadhaar, existing mutation entries.</td></tr>
+      <tr><td>Rent receipts (मालगुजारी रसीद)</td><td>Powerful. Shows continuous possession and payment. Even old ones.</td></tr>
+      <tr><td>Any old paper naming the plot</td><td>Tax receipt, electricity bill, court paper, partition deed, even a family letter with the khata/khesra number.</td></tr>
+      <tr><td>Aadhaar + mobile</td><td>Yours, for the filing.</td></tr>
+    </table>
+
+    <div class="note">
+      <strong>If a death was never registered</strong> — common for deaths before the 1970s — you
+      can't produce a certificate that doesn't exist. Ask the anchal office about the affidavit route
+      and what secondary evidence they accept. Don't let a missing certificate stop you filing; file
+      and explain.
+    </div>
+  </section>
+
+  <section id="hard">
+    <h2 class="sec-title">Before you file — three honest questions</h2>
+    <p class="sec-sub">Filing is cheap. Filing <em>wrong</em> is worse than filing late, because it
+    goes on the record with your name on it.</p>
+
+    <details open>
+      <summary>Who is actually in possession right now?</summary>
+      <p>If a cousin, uncle or stranger has farmed or occupied the land for decades, you are not doing
+      paperwork — you are opening a dispute, possibly against your own family. Adverse possession and
+      limitation may have run. <strong>Recovering the record and recovering the land are different
+      problems, and the second one has a clock that may already have expired.</strong> Talk to a vakil
+      before you file, not after.</p>
+    </details>
+    <details>
+      <summary>How many other descendants are there?</summary>
+      <p>"Great-grandfather" usually means several branches of the family, and every descendant is a
+      co-claimant. A vanshavali that quietly omits your uncle's line is a false document — and it will
+      be contested by people who know the truth. <strong>Get the family tree right even where it costs
+      you share.</strong> A correct smaller claim beats a fraudulent larger one that collapses.</p>
+    </details>
+    <details>
+      <summary>Was the land ever partitioned or sold?</summary>
+      <p>An old partition deed or a sale you don't know about changes everything. Before assuming the
+      land is undivided, check the registration records — a different department from the survey, and
+      a different portal.</p>
+      <p>Go to <a href="https://enibandhan.bihar.gov.in/" target="_blank" rel="noopener">eNibandhan</a>
+      (Prohibition, Excise &amp; Registration Dept — 141 registry offices statewide) and use two
+      services: <strong>Encumbrance Certificate</strong> — every registered transaction on a property
+      over a period, so ask for as many years back as they'll give you — and <strong>Certified
+      Copy</strong>, if the EC shows a deed you didn't know existed.</p>
+      <p><strong>This is also how you recover papers lost in a fire or flood.</strong> The
+      sub-registrar keeps a permanent copy of every registered deed. Your copy burning does not
+      destroy theirs. A certified copy is legally usable in place of the original.</p>
+      <p>Registration helpline: <strong>14544</strong> or 0612-3522300. Note that pre-computerisation
+      deeds — anything from your great-grandfather's time — usually won't appear online at all. Those
+      need a physical search of the registry's ledgers, normally via a search advocate who knows those
+      volumes.</p>
+    </details>
+  </section>
+
+  <section id="help">
+    <h2 class="sec-title">Where to get help</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="tag">Official</span>
+        <h3>DLRS helpline</h3>
+        <p><strong>0612-2280012</strong><br>
+        <a href="mailto:directorlrs-bih@nic.in">directorlrs-bih@nic.in</a></p>
+        <p style="margin-top:10px">Directorate of Land Records &amp; Survey, Survey Institute, Shastri Nagar, Patna&nbsp;800023</p>
+      </div>
+      <div class="card">
+        <span class="tag">Local</span>
+        <h3>Bandobast Karyalaya</h3>
+        <p>Your district settlement office runs the survey on the ground. For "what stage is my mouza"
+        and "was my form received", they are the real answer — not the website.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Free legal aid</span>
+        <h3>DLSA / NALSA</h3>
+        <p>Every district has a Legal Services Authority offering <strong>free lawyers</strong> to
+        eligible people — women, SC/ST, and those below the income limit. Land is exactly what they
+        handle. Badly underused.</p>
+        <p style="margin-top:10px"><a href="https://nalsa.gov.in" target="_blank" rel="noopener">nalsa.gov.in →</a></p>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Be careful of middlemen.</strong> The forms are free, the portal is free, and the
+      vanshavali needs no Sarpanch signature. A survey affecting every landholder in the state is a
+      magnet for people charging to do what you can do yourself. Paying someone to file is your choice
+      — paying someone because they told you it's compulsory is not.
+    </div>
+  </section>
+
+  <section>
+    <div class="note calm">
+      <strong>Why we wrote this.</strong> We went looking for a great-grandfather's land papers, lost
+      in a disaster, and found that the papers were the least of it — the state keeps its own records,
+      and they outlive any fire or flood. What nearly cost us the land wasn't the missing documents.
+      It was not knowing a survey was running, that a form existed for exactly this, and that a clock
+      was already ticking. That's the only reason this page exists.
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="f-note"><strong>We are not the government, a lawyer, or an agent.</strong> This page
+    explains an official process and links to official portals. Every filing is between you and the
+    Directorate. We never see your details.</p>
+    <p class="f-note">Verified against <a href="https://dlrs.bihar.gov.in/" target="_blank" rel="noopener">dlrs.bihar.gov.in</a>
+    in July 2026. This survey's dates, forms and procedures have changed repeatedly and will change
+    again — <strong>the Directorate and your Bandobast Karyalaya are the authority, not us.</strong>
+    General information only, not legal advice. For anything involving possession, other claimants, or
+    a disputed chain, consult a lawyer — DLSA is free if you qualify.</p>
+    <p>Sources:
+      <a href="https://dlrs.bihar.gov.in/" target="_blank" rel="noopener">DLRS Bihar</a> ·
+      <a href="https://biharbhumi.bihar.gov.in/" target="_blank" rel="noopener">Bihar Bhumi</a> ·
+      <a href="https://enibandhan.bihar.gov.in/" target="_blank" rel="noopener">eNibandhan (Registration)</a> ·
+      <a href="https://nalsa.gov.in" target="_blank" rel="noopener">NALSA</a>
+    </p>
+    <p style="margin-top:14px"><a href="/">← Back to Bharat Schemes</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
