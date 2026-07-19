@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Today's Mandi Prices — live government market rates | Bharat</title>
+<meta name="description" content="Live daily commodity prices from India's agricultural markets (mandis), straight from the Government of India's open data. Pick your state and commodity to see today's rates.">
+<link rel="canonical" href="https://bharat.commercios.com/prices/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bharat.commercios.com/prices/">
+<meta property="og:title" content="Today's Mandi Prices — live government market rates">
+<meta property="og:description" content="Live daily commodity prices from India's mandis, from the Government of India's open data. Free, official, updated daily.">
+<meta property="og:site_name" content="Bharat">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  .controls{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin:8px 0 22px}
+  .fld{display:flex;flex-direction:column;gap:6px}
+  .fld label{font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink3)}
+  .fld select,.fld input{font:inherit;font-size:15px;padding:11px 13px;border:1px solid var(--line);
+    border-radius:11px;background:var(--paper2);color:var(--ink);min-width:190px}
+  .status{font-size:14px;color:var(--ink3);margin:6px 0 14px;min-height:20px}
+  .price-modal{font-family:"Bricolage Grotesque";font-weight:800;color:var(--saffron-deep);white-space:nowrap}
+  .spin{display:inline-block;width:15px;height:15px;border:2px solid var(--line);
+    border-top-color:var(--saffron);border-radius:50%;animation:sp .7s linear infinite;vertical-align:-2px;margin-right:8px}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  .statecard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);
+    padding:26px;text-align:center;box-shadow:var(--shadow)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap hd">
+    <a class="brand" href="/">
+      <span class="mark" aria-hidden="true"></span>
+      <span>Bharat<small>bharat.commercios.com</small></span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="/">Schemes</a>
+      <a href="/tenders/">Tenders</a>
+      <a href="/property/">Property</a>
+      <a href="/auctions/">Auctions</a>
+      <a href="/prices/" aria-current="page">Mandi prices</a>
+      <a href="/unclaimed/">Unclaimed money</a>
+      <a href="/rti/">RTI</a>
+      <span class="verified-pill"><span class="dot"></span>Live · data.gov.in</span>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+  <section class="hero" style="padding-bottom:14px">
+    <div class="eyebrow">Live Government Data</div>
+    <h1>Today's mandi prices, straight from the source.</h1>
+    <p class="lede">Daily commodity rates from India's agricultural markets, pulled live from the
+    Government of India's open data platform. This is the same feed the government publishes —
+    we just make it easier to read. Pick a state to begin.</p>
+  </section>
+
+  <section style="padding-top:8px">
+    <div class="controls">
+      <div class="fld">
+        <label for="state">State</label>
+        <select id="state" aria-label="State"><option value="">Loading…</option></select>
+      </div>
+      <div class="fld">
+        <label for="commodity">Commodity (optional)</label>
+        <select id="commodity" aria-label="Commodity"><option value="">All commodities</option></select>
+      </div>
+      <div class="fld">
+        <label for="q">Search market/district</label>
+        <input id="q" type="text" placeholder="e.g. Patna" aria-label="Search market or district">
+      </div>
+    </div>
+
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+
+    <div id="result" class="tw"></div>
+  </section>
+
+  <div class="note calm" style="margin-top:26px">
+    <strong>What you're looking at.</strong> These are <em>modal</em> prices — the most common
+    trade price on the given day — reported by Agricultural Produce Market Committees (APMCs) and
+    published by the Ministry of Agriculture &amp; Farmers Welfare. <strong>Always check the date on
+    each row.</strong> Not every market reports every day, so the newest figure for your area may be
+    a day or two old. For a binding rate, confirm at the mandi itself.
+  </div>
+
+  <section>
+    <h2 class="sec-title">Why this is here</h2>
+    <p class="sec-sub">Every other section of this site links you to an official portal. This one is
+    different: the government publishes this data openly, so we can show it to you directly. It's the
+    same rate a trader in your district is quoting today — you just don't usually get to see it before
+    you reach the market.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="tag">Official</span>
+        <h3>Government source</h3>
+        <p>Straight from <a href="https://data.gov.in" target="_blank" rel="noopener">data.gov.in</a>,
+        the Government of India's Open Government Data platform. We add nothing and change nothing —
+        we only filter and format.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Free</span>
+        <h3>No login, no charge</h3>
+        <p>You need nothing to see this. No account, no app, no fee. If any site charges you for
+        mandi prices, they are selling you public information.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Honest</span>
+        <h3>We show the date</h3>
+        <p>Prices carry the day they were reported. We never present an old figure as today's. If
+        the feed is down, we tell you and point you to the source — we don't invent a number.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="reviewed" id="freshness">Live data from data.gov.in</span>
+    <p class="f-note"><strong>We are not the government.</strong> This page displays open data
+    published by the Government of India via data.gov.in. Prices are reported by market committees and
+    may be delayed or incomplete. For a binding rate, confirm at the mandi. Not trading or financial
+    advice.</p>
+    <p>Source:
+      <a href="https://data.gov.in" target="_blank" rel="noopener">data.gov.in</a> ·
+      Dataset: Current Daily Price of Various Commodities from Various Markets (Mandi), Ministry of
+      Agriculture &amp; Farmers Welfare
+    </p>
+    <p style="margin-top:14px"><a href="/">← Back to Bharat</a></p>
+  </div>
+</footer>
+
+<script>
+/* ---------------------------------------------------------------------------
+   Mandi prices — live from data.gov.in, called directly from the browser.
+   Works because the API sends Access-Control-Allow-Origin: *  (verified 18 Jul 2026).
+
+   ⚠️ BEFORE PRODUCTION: replace API_KEY with your OWN free key from data.gov.in.
+   The key below is data.gov.in's shared public SAMPLE key — fine for a demo,
+   not for a launched site. A key in client-side JS is visible in view-source;
+   for read-only public data that is low-risk, but use your own so a stranger
+   can't attribute traffic to you. If the key ever gets rate-limited, move this
+   fetch behind a free Cloudflare Worker that holds the key server-side.
+--------------------------------------------------------------------------- */
+const API_KEY = '579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b'; // ← REPLACE
+const RESOURCE = '9ef84268-d588-465a-a308-a864a43d0070';
+const BASE = `https://api.data.gov.in/resource/${RESOURCE}`;
+const TIMEOUT = 15000;
+
+/* Fallback state list — standard names, used if the live feed is slow or the
+   demo key is rate-limited at page load. The page tries live-seeding first
+   (which gives the API's exact spellings and self-corrects any mismatch here). */
+const FALLBACK_STATES = [
+  'Andhra Pradesh','Assam','Bihar','Chandigarh','Chhattisgarh','Gujarat','Haryana',
+  'Himachal Pradesh','Jammu and Kashmir','Jharkhand','Karnataka','Keralam','Madhya Pradesh',
+  'Maharashtra','Manipur','Meghalaya','Nagaland','Odisha','Punjab','Rajasthan','Tamil Nadu',
+  'Telangana','Tripura','Uttar Pradesh','Uttarakhand','West Bengal'
+];
+
+const $ = id => document.getElementById(id);
+const statusEl = $('status'), resultEl = $('result'),
+      stateSel = $('state'), commSel = $('commodity'), qInput = $('q');
+
+let currentRows = [];
+
+function setStatus(html){ statusEl.innerHTML = html; }
+
+async function api(params){
+  const url = `${BASE}?api-key=${API_KEY}&format=json&${params}`;
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), TIMEOUT);
+  try {
+    const r = await fetch(url, { signal: ctrl.signal });
+    if (r.status === 429) { const e = new Error('rate limited'); e.rate = true; throw e; }
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return await r.json();
+  } finally { clearTimeout(timer); }
+}
+
+function rateLimitedMsg(){
+  return `The shared demo key has hit its rate limit. This is expected — the live
+    site needs its own free key from <a href="https://data.gov.in" target="_blank" rel="noopener">data.gov.in</a>.
+    Until then, prices may not load here. You can always check the source directly.`;
+}
+
+function fmt(n){ return n == null || n === '' ? '—' : '₹' + Number(n).toLocaleString('en-IN'); }
+
+function errorCard(msg){
+  resultEl.innerHTML =
+    `<div class="statecard">
+       <p style="font-weight:600;margin-bottom:8px">${msg}</p>
+       <p style="color:var(--ink3);font-size:14px;margin-bottom:14px">
+         The government feed can be slow or briefly unavailable. This is on their side, not yours.</p>
+       <a class="btn" href="https://data.gov.in" target="_blank" rel="noopener">Open data.gov.in →</a>
+       <button class="btn primary" style="margin-left:8px" onclick="loadPrices()">Try again</button>
+     </div>`;
+}
+
+function render(rows){
+  currentRows = rows;
+  const q = qInput.value.trim().toLowerCase();
+  const filtered = q ? rows.filter(r =>
+    (r.market||'').toLowerCase().includes(q) || (r.district||'').toLowerCase().includes(q)) : rows;
+
+  if (!filtered.length){
+    resultEl.innerHTML = `<div class="statecard"><p>No matching prices reported today.
+      Try a different commodity, or clear the market search.</p></div>`;
+    return;
+  }
+  // freshest date present, for the stamp
+  const dates = filtered.map(r => r.arrival_date).filter(Boolean).sort();
+  if (dates.length) $('freshness').textContent = 'Latest reported: ' + dates[dates.length-1] + ' · source data.gov.in';
+
+  let h = `<table><thead><tr>
+      <th>District</th><th>Market</th><th>Commodity</th><th>Variety</th>
+      <th style="text-align:right">Min</th><th style="text-align:right">Max</th>
+      <th style="text-align:right">Modal</th><th>Date</th></tr></thead><tbody>`;
+  for (const r of filtered){
+    h += `<tr>
+      <td>${r.district||'—'}</td><td>${r.market||'—'}</td>
+      <td>${r.commodity||'—'}</td><td style="color:var(--ink3)">${r.variety||'—'}</td>
+      <td style="text-align:right">${fmt(r.min_price)}</td>
+      <td style="text-align:right">${fmt(r.max_price)}</td>
+      <td style="text-align:right" class="price-modal">${fmt(r.modal_price)}</td>
+      <td style="color:var(--ink3);white-space:nowrap">${r.arrival_date||'—'}</td></tr>`;
+  }
+  h += `</tbody></table>`;
+  resultEl.innerHTML = h;
+  setStatus(`${filtered.length} price${filtered.length===1?'':'s'} shown${q?` matching “${qInput.value.trim()}”`:''}. Prices are per quintal unless the market states otherwise.`);
+}
+
+async function loadPrices(){
+  const state = stateSel.value;
+  if (!state){ resultEl.innerHTML=''; setStatus('Pick a state to see today’s prices.'); return; }
+  setStatus(`<span class="spin"></span>Fetching live prices for ${state}…`);
+  resultEl.innerHTML = '';
+  let params = `limit=500&filters%5Bstate%5D=${encodeURIComponent(state)}`;
+  if (commSel.value) params += `&filters%5Bcommodity%5D=${encodeURIComponent(commSel.value)}`;
+  try {
+    const d = await api(params);
+    const rows = (d.records || []).sort((a,b)=>(a.district||'').localeCompare(b.district||''));
+    if (!rows.length){
+      resultEl.innerHTML = `<div class="statecard"><p>No prices reported for ${state} in the latest
+        update. Not every market reports every day — try another state, or check back later.</p></div>`;
+      setStatus('');
+      return;
+    }
+    // populate commodity dropdown from what this state actually has
+    const comms = [...new Set(rows.map(r=>r.commodity).filter(Boolean))].sort();
+    const cur = commSel.value;
+    commSel.innerHTML = '<option value="">All commodities</option>' +
+      comms.map(c=>`<option${c===cur?' selected':''}>${c}</option>`).join('');
+    render(rows);
+  } catch(e){
+    setStatus('');
+    errorCard(e.rate ? rateLimitedMsg()
+      : e.name === 'AbortError' ? 'The government feed did not respond in time.'
+      : 'Could not reach the government feed just now.');
+  }
+}
+
+function fillStates(list){
+  stateSel.innerHTML = '<option value="">Select a state…</option>' +
+    list.map(s=>`<option>${s}</option>`).join('');
+}
+
+async function init(){
+  // Show a usable dropdown IMMEDIATELY from the fallback list — never block the
+  // UI on the slow feed. Then try to upgrade to the API's exact spellings in the
+  // background; if that fails (slow, or demo key rate-limited), the fallback stays.
+  fillStates(FALLBACK_STATES);
+  setStatus('Pick a state to see today’s prices.');
+
+  const states = new Set();
+  for (let off = 0; off < 4000; off += 1000){
+    try {
+      const d = await api(`limit=1000&offset=${off}&fields=state`);
+      (d.records||[]).forEach(r => r.state && states.add(r.state));
+    } catch(e){ break; }   // keep the fallback; user can still pick a state
+  }
+  const live = [...states].sort();
+  if (live.length){
+    const keep = stateSel.value;
+    fillStates(live);
+    if (keep && live.includes(keep)) stateSel.value = keep;
+    setStatus(`Pick a state to see today’s prices. ${live.length} states reporting today.`);
+  }
+}
+
+stateSel.addEventListener('change', () => { commSel.value=''; loadPrices(); });
+commSel.addEventListener('change', loadPrices);
+qInput.addEventListener('input', () => currentRows.length && render(currentRows));
+init();
+</script>
+</body>
+</html>

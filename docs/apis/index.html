@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Government & public data APIs we can integrate | Bharat (internal)</title>
+<meta name="description" content="A tested catalogue of Indian government and public-data APIs, sorted by whether a static website can actually use them.">
+<link rel="canonical" href="https://bharat.commercios.com/apis/">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Government & public data APIs we can integrate">
+<meta property="og:description" content="Tested catalogue of Indian govt/public APIs, sorted by whether a no-backend site can use them.">
+<meta property="og:site_name" content="Bharat">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;white-space:nowrap}
+  .ok{background:var(--green-soft);color:var(--green)}
+  .no{background:var(--red-soft);color:var(--red)}
+  .maybe{background:var(--saffron-soft);color:var(--saffron-deep)}
+  td small{color:var(--ink3)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap hd">
+    <a class="brand" href="/">
+      <span class="mark" aria-hidden="true"></span>
+      <span>Bharat<small>bharat.commercios.com</small></span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="/">Schemes</a>
+      <a href="/tenders/">Tenders</a>
+      <a href="/property/">Property</a>
+      <a href="/auctions/">Auctions</a>
+      <a href="/prices/">Mandi prices</a>
+      <a href="/unclaimed/">Unclaimed money</a>
+      <a href="/rti/">RTI</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+
+  <section class="hero" style="padding-bottom:14px">
+    <div class="eyebrow">Internal · Integration reference</div>
+    <h1>APIs we can integrate, sorted by whether they actually work here.</h1>
+    <p class="lede">The only question that matters for a site with no backend: does the API send
+    <code>Access-Control-Allow-Origin</code> so a browser can call it directly? Everything below was
+    tested with that lens on 18 July 2026, not copied from documentation.</p>
+  </section>
+
+  <div class="note">
+    <strong>Two honesty flags run through this page.</strong> First: <em>"government"</em> means the
+    data is officially published — but some useful APIs are <strong>third-party wrappers</strong>
+    around government data, not government-run. We mark those. Second: CORS status changes and demo
+    keys get rate-limited, so <strong>re-test before building</strong>. Our own <code>scripts/qa.py --links</code>
+    won't catch an API that quietly changes its CORS policy.
+  </div>
+
+  <section>
+    <h2 class="sec-title">✅ Usable from a static page today</h2>
+    <p class="sec-sub">CORS-open, no per-user login. Callable straight from the visitor's browser.</p>
+    <div class="tw">
+    <table>
+      <thead><tr><th>API</th><th>Who runs it</th><th>Gives you</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>data.gov.in</strong><br><small>Open Government Data</small></td>
+          <td>Govt of India (NIC/MeitY) — <span class="pill ok">OFFICIAL</span></td>
+          <td>Mandi prices (live, daily), AQI, and 285,000+ datasets. Filterable by state/district.</td>
+          <td><span class="pill ok">CORS *</span> <small>needs a free key; demo key rate-limits</small></td>
+        </tr>
+        <tr>
+          <td><strong>India Post PIN</strong><br><small>api.postalpincode.in</small></td>
+          <td>Third-party wrapper — <span class="pill maybe">NOT OFFICIAL</span></td>
+          <td>PIN → post office, district, state. Great for auto-filling address forms.</td>
+          <td><span class="pill ok">CORS *</span> <small>keyless; wraps India Post data</small></td>
+        </tr>
+        <tr>
+          <td><strong>IFSC lookup</strong><br><small>ifsc.razorpay.com</small></td>
+          <td>Razorpay, from RBI data — <span class="pill maybe">NOT OFFICIAL</span></td>
+          <td>IFSC code → bank, branch, address. Useful for the unclaimed-money and claims flows.</td>
+          <td><span class="pill ok">CORS *</span> <small>keyless; RBI-sourced</small></td>
+        </tr>
+        <tr>
+          <td><strong>Nominatim</strong><br><small>OpenStreetMap</small></td>
+          <td>OSM Foundation — <span class="pill maybe">NOT GOVT</span></td>
+          <td>Place → coordinates, for maps. Free, but has a strict usage policy.</td>
+          <td><span class="pill ok">CORS *</span> <small>1 req/sec cap; attribution required</small></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="color:var(--ink3);font-size:13.5px;margin-top:10px">
+      Only <strong>data.gov.in is government-run</strong>. The others are convenient wrappers — fine
+      to use, but say so, and don't imply official endorsement. For PIN and IFSC there are no
+      official CORS-open government endpoints, which is why wrappers exist.</p>
+  </section>
+
+  <section>
+    <h2 class="sec-title">⛔ Real, official, but need a backend</h2>
+    <p class="sec-sub">These return a specific citizen's private data, so they require a server, a
+    registered secret, and (mostly) MeitY/NeSL approval. They cannot run from GitHub Pages — and
+    shouldn't, because a secret in browser code is not a secret.</p>
+    <div class="tw">
+    <table>
+      <thead><tr><th>API</th><th>Gives you</th><th>Why not here</th></tr></thead>
+      <tbody>
+        <tr><td><strong>DigiLocker</strong> (API Setu)</td><td>A citizen's own DL, RC, certificates, on consent</td><td>OAuth + per-org secret + MeitY approval</td></tr>
+        <tr><td><strong>Aadhaar eKYC</strong></td><td>Identity verification</td><td>Licensed; criminal liability for misuse</td></tr>
+        <tr><td><strong>PAN / GST / bank verify</strong></td><td>Business verification (Setu, Signzy, Karza)</td><td>Commercial keys, server-only</td></tr>
+        <tr><td><strong>API Setu "Services"</strong> (109)</td><td>Verified document pulls</td><td>Requester onboarding + secret</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="color:var(--ink3);font-size:13.5px;margin-top:10px">
+      API Setu is 2,791 consent-based "Docs" vs 109 "Services" — almost none callable from a static
+      page. This is the <code>arpit@commercios.com</code> + MeitY route already on the roadmap. It
+      needs a minimal backend (even a free Cloudflare Worker) before any of it is reachable.</p>
+  </section>
+
+  <section>
+    <h2 class="sec-title">The rule of thumb</h2>
+    <div class="grid">
+      <div class="card"><span class="tag">Green light</span><h3>Public data, CORS-open</h3>
+        <p>Build it client-side. Prices, PIN, IFSC, maps. Show the source and the date.</p></div>
+      <div class="card"><span class="tag">Yellow</span><h3>Public data, no CORS</h3>
+        <p>Needs a tiny proxy (free Cloudflare Worker) to add CORS headers. Cheap, but it's a backend.</p></div>
+      <div class="card"><span class="tag">Red</span><h3>Anyone's private data</h3>
+        <p>Backend + registered secret + approval, always. Never attempt from the browser.</p></div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="reviewed">Tested: 18 July 2026 · re-test before building</span>
+    <p class="f-note"><strong>Internal reference. We are not the government.</strong> Not linked from
+    the public navigation and marked <code>noindex</code>. CORS status and key limits change; every
+    row here should be re-tested at build time, not trusted from this snapshot.</p>
+    <p>Primary source:
+      <a href="https://data.gov.in" target="_blank" rel="noopener">data.gov.in</a> ·
+      <a href="https://directory.apisetu.gov.in/search" target="_blank" rel="noopener">API Setu</a>
+    </p>
+    <p style="margin-top:14px"><a href="/">← Back to Bharat</a></p>
+  </div>
+</footer>
+</body>
+</html>
